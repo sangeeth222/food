@@ -18,6 +18,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AboutusComponent } from 'src/aboutus/aboutus.component';
 import { ContactComponent } from 'src/contact/contact.component';
 import { CareerComponent } from './career/career.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
  @NgModule({
   declarations: [								
     AppComponent,
@@ -47,5 +49,6 @@ import { CareerComponent } from './career/career.component';
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
