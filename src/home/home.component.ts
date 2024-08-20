@@ -27,5 +27,4 @@ contact() {
   career() {
     this.route.navigate(['career'])
   }
-  
 }
