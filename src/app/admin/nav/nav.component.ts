@@ -10,6 +10,7 @@ import { ApiService } from 'src/api.service';
 export class NavComponent implements OnInit {
 
 
+
   nonveg: any[] = [];
   categoryitem:any[]=[];
   // userById: any[]=[];
@@ -58,6 +59,9 @@ upload() {
   update() {
     this.route.navigate(['nav','update'])
    }
+   
+   categorys() {
+this.route.navigate(['nav','categorys'])    }
 
 getall(){
   this.api.get('/category/getall').subscribe((res: any[]) => {
@@ -70,6 +74,7 @@ getall(){
 logout(){
   localStorage.removeItem("res");
   this.userName= null;
+  this.route.navigate(['login'])
 }
 items: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 searchTerm: string = '';

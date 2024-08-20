@@ -14,10 +14,22 @@ export class BuyComponent implements OnInit {
  
   buy: any;
   userId: any;
-  cartItems: any;
+  cartItems: { productName: string, quality: string, price: number }[] = [];
   inputValue: number = 1;
   total: any;
   addItems: any;
+
+  
+  // ordercode
+  name: any;
+  email: any;
+  address: any;
+  mobileNumber: any;
+  pincode: any;
+  totalAmount: any;
+  userById: string | undefined;
+  city: any;
+  country: any;
   
   
 
@@ -29,10 +41,8 @@ export class BuyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.get('/products/getById/' + this.id).subscribe((res: any) => {
-        this.data = res;
-     
-    });
+    this.getall()
+
   }
 
   
@@ -45,8 +55,58 @@ cart(){
   
 }
 
-totalPrice(item: any): number {
-  return item.price * item.price; 
+
+post(){
+  let data:any={}
+    data['name']=this.name;
+    data['email']=this.email;
+    data['address']=this.address;
+    data['mobileNumber']=this.mobileNumber;
+    data['pincode']=this.pincode;
+    data['totalAmount']=this.getGrandTotal();
+    data['city']=this.city;
+    data['country']=this.country;
+    data['userId'] = this.userById;
+    data['orderItem'] = this.cartItems;
+  this.api.post('/orders/saves',data).subscribe((res) => {
+    console.log(res);
+    this.route.navigate(['']);
+    
+})
+   
+
+    
+  ;
+}
+
+
+getall() {
+  let data = localStorage.getItem("res");
+  if (data) {
+    console.log(JSON.parse(data));
+    let item = JSON.parse(data);
+    this.userById = item.id;
+  }
+  
+  this.api.get('/cart/userById/' + this.userById).subscribe((res) => {
+    console.log(res);
+    this.addItems = res;
+    // Transform the array
+    this.cartItems = res.map((item: { productName: any; quantity: any; price: any; }) => {
+     this.totalPrice(item);
+
+      return {
+        productName: item.productName,
+        quantity  : item.quantity,
+        price: item.price
+
+      };
+    });
+  });
+}
+totalPrice(item: any) {
+  this.totalAmount = item.price * item.quantity
+  return item.price * item.quantity; 
 }
 getGrandTotal(): number {
   let grandTotal = 0;
@@ -57,10 +117,5 @@ getGrandTotal(): number {
 
   return grandTotal;
 }
-
-calculateTotal(): void {
-  
-}
-
 
 }

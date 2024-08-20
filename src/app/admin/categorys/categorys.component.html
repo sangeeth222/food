@@ -1,0 +1,18 @@
+<form *ngIf="formgroup" [formGroup]="formgroup" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="CategoryName">Category Name:</label>
+    <input type="text" class="form-control" id="CategoryName" placeholder="Enter Category Name" formControlName="categoryName">
+  </div>
+  
+  <div formArrayName="subcategory">
+    <div *ngFor="let subcategory of subcategory.controls; let i = index">
+      <div [formGroupName]="i">
+        <input formControlName="subCategoryName" placeholder="Subcategory Name">
+       </div>
+    </div>
+  </div>
+
+  <button type="button" (click)="addSubcategory()">Add Subcategory</button>
+
+  <button type="submit" class="btn btn-primary ms-3">Upload</button>
+</form>

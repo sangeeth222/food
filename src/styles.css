@@ -1,16 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-
+body{
+  font-family:"Poppins",Arial,sans-serif;
+}
 .red-snackbar{
-    --mdc-snackbar-container-color:red;
-    --mat-snack-bar-button-color:blue;
-    --mdc-snackbar-supporting-text-color:pink;
-    padding-top:100px;
+    --mdc-snackbar-container-color:black;
+    --mat-snack-bar-button-color:red;
+    --mdc-snackbar-supporting-text-color:white;
+    padding-top:125px;
+   
   }
   .green-snackbar{
     --mdc-snackbar-container-color:white;
     --mat-snack-bar-button-color:black;
     --mdc-snackbar-supporting-text-color:green;
-    padding-top:50px;
-  
+    padding-top:125px;
+ 
   }
+  html,body{height: 100%;}
+  body{margin: 0; font-weight: Roboto,"Helvetice Neue", sans-serif;}

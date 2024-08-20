@@ -53,6 +53,7 @@ export class FoodsComponent implements OnInit {
 
     })
   }
+  
   post(data: any) {
 
     if(this.userId){

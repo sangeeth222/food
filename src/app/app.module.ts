@@ -17,6 +17,7 @@ import { BuyComponent } from 'src/buy/buy.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AboutusComponent } from 'src/aboutus/aboutus.component';
 import { ContactComponent } from 'src/contact/contact.component';
+import { CareerComponent } from './career/career.component';
  @NgModule({
   declarations: [								
     AppComponent,
@@ -28,7 +29,8 @@ import { ContactComponent } from 'src/contact/contact.component';
       CartComponent,
       BuyComponent,
       AboutusComponent,
-      ContactComponent
+      ContactComponent,
+      CareerComponent
     ],
   imports: [
     BrowserModule,

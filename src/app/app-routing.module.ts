@@ -9,6 +9,7 @@ import { LoginComponent } from 'src/login/login.component';
 import { SignupComponent } from 'src/signup/signup.component';
 import { AboutusComponent } from 'src/aboutus/aboutus.component';
 import { ContactComponent } from 'src/contact/contact.component';
+import { CareerComponent } from './career/career.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"cart",component:CartComponent},
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
+  {path:"career",component:CareerComponent},
   {path:"nav",loadChildren:()=> import('./admin/admin.module').then(m => m.AdminModule)},
 
 
