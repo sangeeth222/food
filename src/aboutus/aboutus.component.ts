@@ -10,9 +10,7 @@ export class AboutusComponent {
   constructor(private rou:Router){}
   goback() {
   this.rou.navigate(['']);
-  console.log(this.goback,"dsdfsh");
+
   }
- 
-  
 
 }
