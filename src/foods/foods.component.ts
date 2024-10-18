@@ -55,10 +55,7 @@ export class FoodsComponent implements OnInit {
   }
   
   post(data: any) {
-
     if(this.userId){
-
-  
     console.log(data);
     let payload: any = {};
     payload['productName'] = data.productName;
@@ -69,9 +66,7 @@ export class FoodsComponent implements OnInit {
       "id": this.userId
     }; 
     payload['productId'] = data.id;
-
-
-
+    
     this.api.post("/cart", payload).subscribe((res) => {
       this.snackbar.showSuccessMessage(res.message);
 
@@ -99,6 +94,6 @@ getall(){
   })
 }
 buy(){
-  this.route.navigate(['cart'])
+  this.route.navigate(['buy'])
 }
 }
