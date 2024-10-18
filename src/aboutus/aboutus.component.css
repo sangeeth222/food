@@ -1,161 +1,144 @@
- body {
-   font-family: "Poppins", sans-serif;
- }
+body {
+  font-family: "Poppins", sans-serif;
+}
 
+#food h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: #555;
+}
 
+.food-container {
+  display: flex;
+  justify-content: space-between;
+}
 
+.food-container img {
+  display: block;
+  width: 100%;
+  margin: auto;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
 
+.img-container {
+  margin: 0 1rem;
+  position: relative;
+}
 
+.img-content {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  text-align: center;
+  transition: all 0.3s ease-in-out 0.1s;
+}
 
+.img-content h3 {
+  color: #fff;
+  font-size: 2.2rem;
+}
 
- #food h2 {
-   text-align: center;
-   font-size: 2.5rem;
-   font-weight: 400;
-   margin-bottom: 40px;
-   text-transform: uppercase;
-   color: #555;
- }
+.img-content a {
+  font-size: 1.2rem;
+}
 
- .food-container {
-   display: flex;
-   justify-content: space-between;
- }
+.img-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.871);
+  opacity: 0;
+  z-index: 1;
+  transform: scaleY(0);
+  transform-origin: 100% 100%;
+  transition: all 0.3s ease-in-out;
+}
 
- .food-container img {
-   display: block;
-   width: 100%;
-   margin: auto;
-   max-height: 300px;
-   object-fit: cover;
-   object-position: center;
- }
+.img-container:hover::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
 
- .img-container {
-   margin: 0 1rem;
-   position: relative;
- }
+.img-container:hover .img-content {
+  opacity: 1;
+  top: 40%;
+}
 
- .img-content {
-   position: absolute;
-   top: 70%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   opacity: 0;
-   z-index: 2;
-   text-align: center;
-   transition: all 0.3s ease-in-out 0.1s;
- }
+#about {
+  padding: 50px 0;
+  background: #f5f5f7;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
- .img-content h3 {
-   color: #fff;
-   font-size: 2.2rem;
- }
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 
- .img-content a {
-   font-size: 1.2rem;
- }
+#about h2 {
+  font-size: 2.3rem;
+}
 
- .img-container::after {
-   content: "";
-   display: block;
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 0, 0, 0.871);
-   opacity: 0;
-   z-index: 1;
+#about p {
+  font-size: 1.2rem;
+  color: #555;
+}
 
-   transform: scaleY(0);
-   transform-origin: 100% 100%;
-   transition: all 0.3s ease-in-out;
- }
+#about .small {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 600;
+}
 
- .img-container:hover::after {
-   opacity: 1;
-   transform: scaleY(1);
- }
+.about-img {
+  flex: 1 1 400px;
+  padding: 30px;
+  transform: translateX(150%);
+  animation: about-img-animation 1s ease-in-out forwards;
+}
 
- .img-container:hover .img-content {
-   opacity: 1;
-   top: 40%;
- }
+@keyframes about-img-animation {
+  100% {
+      transform: translate(0);
+  }
+}
 
+.about-text {
+  flex: 1 1 400px;
+  padding: 30px;
+  margin: auto;
+  transform: translate(-150%);
+  animation: about-text-animation 1s ease-in-out forwards;
+}
 
+@keyframes about-text-animation {
+  100% {
+      transform: translate(0);
+  }
+}
 
-
-
-
-
- / ...... //about us//...... /
-
- #about {
-   padding: 50px 0;
-   background: #f5f5f7;
- }
-
- .about-wrapper {
-   display: flex;
-   flex-wrap: wrap;
- }
-
- #about h2 {
-   font-size: 2.3rem;
- }
-
- #about p {
-   font-size: 1.2rem;
-   color: #555;
- }
-
- #about .small {
-   font-size: 1.2rem;
-   color: #666;
-   font-weight: 600;
- }
-
- .about-img {
-   flex: 1 1 400px;
-   padding: 30px;
-   transform: translateX(150%);
-   animation: about-img-animation 1s ease-in-out forwards;
- }
-
- @keyframes about-img-animation {
-   100% {
-     transform: translate(0);
-   }
- }
-
- .about-text {
-   flex: 1 1 400px;
-   padding: 30px;
-   margin: auto;
-   transform: translate(-150%);
-   animation: about-text-animation 1s ease-in-out forwards;
- }
-
- @keyframes about-text-animation {
-   100% {
-     transform: translate(0);
-   }
- }
-
- .about-img img {
-   display: block;
-   height: 400px;
-   max-width: 100%;
-   margin: auto;
-   object-fit: cover;
-   object-position: right;
- }
-
-
-
-
- / ........./ Testimonial /.......... /
+.about-img img {
+  display: block;
+  height: 400px;
+  max-width: 100%;
+  margin: auto;
+  object-fit: cover;
+  object-position: right;
+}
 
 #testimonials {
   padding: 5rem 0;
@@ -199,4 +182,3 @@
   border-radius: 50%;
   margin: auto;
 }
- 
