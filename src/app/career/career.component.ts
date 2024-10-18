@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-career',
@@ -7,9 +8,12 @@ import { Component } from '@angular/core';
 })
  
 export class CareerComponent {
-constructor(){
+  constructor(private rou:Router){} 
   
-}
+  goback() {
+    this.rou.navigate(['']);
+  
+    }
 
 refreshPage() {
   window.location.reload();
