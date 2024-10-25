@@ -19,6 +19,7 @@ import { AboutusComponent } from 'src/aboutus/aboutus.component';
 import { ContactComponent } from 'src/contact/contact.component';
 import { CareerComponent } from './career/career.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+//import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
  @NgModule({
   declarations: [								
@@ -47,8 +48,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
    
 
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
+
   
 })
 export class AppModule { }

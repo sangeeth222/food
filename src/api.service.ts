@@ -10,9 +10,8 @@ export class ApiService {
 
 
   constructor(private http:HttpClient) { }
-
-  baseurl="http://localhost:8080";
   
+  baseurl="https://foodappapi-b7ig.onrender.com";
   
   
   post(path:any,data:any):Observable<any>{
