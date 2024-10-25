@@ -8,6 +8,7 @@ import { CategorysComponent } from './categorys/categorys.component';
 
 const routes: Routes = [
   {path:"",component:NavComponent},
+  {path:"nav",component:NavComponent},
   {path:"login",component:HeaderComponent},
   {path:"upload",component:UploadComponent},
   {path:"update",component:UpdateComponent},

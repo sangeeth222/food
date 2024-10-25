@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/api.service';
 
 @Component({
@@ -16,8 +17,9 @@ export class UploadComponent implements OnInit {
   formgroup: FormGroup | undefined;
   formType: string = 'products';  
   selectedImageSrc: string | ArrayBuffer | null = null;  
+   
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) { }
+  constructor(private fb: FormBuilder, private apiService: ApiService, private router:Router) { }
 
   ngOnInit() {
     this.getCategories();
@@ -50,6 +52,7 @@ export class UploadComponent implements OnInit {
         this.apiService.postProduct(formData).subscribe(
           (response: any) => {
             console.log('Form data uploaded successfully:', response);
+            this.router.navigate(['nav']);
           },
           (error: any) => {
             console.error('Error uploading form data:', error);
