@@ -31,7 +31,7 @@ export class ApiService {
   }
 
   postProduct(formData: FormData): Observable<any> {
-    return this.http.post(this.baseurl + '/products', formData);
+    return this.http.post(this.baseurl + '/products/', formData);
   }
   postCategory(path: string, data: any): Observable<any> {
     return this.http.post<any>(this.baseurl + '/category/save', data);
