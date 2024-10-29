@@ -21,7 +21,7 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+ // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -48,7 +48,7 @@ import { LoginComponent } from './login/login.component';
 
 
   ],
-  //providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [],
   bootstrap: [AppComponent]
 
 
