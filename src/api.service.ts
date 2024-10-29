@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Signupentity } from './signup/signupentity';
+import { Signupentity } from './app/signup/signupentity';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class ApiService {
   }
 
   postProduct(formData: FormData): Observable<any> {
-    return this.http.post(this.baseurl + '/products', formData);
+    return this.http.post(this.baseurl + '/products/', formData);
   }
   postCategory(path: string, data: any): Observable<any> {
     return this.http.post<any>(this.baseurl + '/category/save', data);
