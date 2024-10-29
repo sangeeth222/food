@@ -35,6 +35,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  navigateToFood(id: number) {
+    this.route.navigate(['/food'], { queryParams: { id: id } });
+  }
 food(){
   this.route.navigate(['food'])
 }
