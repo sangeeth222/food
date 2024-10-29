@@ -7,7 +7,7 @@ import { HeaderComponent } from 'src/app/header/header.component';
 import { HomeComponent } from 'src/app/home/home.component';
 
 import { SignupComponent } from 'src/app/signup/signup.component';
-import { AboutusComponent } from 'src/aboutus/aboutus.component';
+import { AboutusComponent } from 'src/app/aboutus/aboutus.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
 import { CareerComponent } from './career/career.component';
 import { LoginComponent } from './login/login.component';

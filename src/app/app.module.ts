@@ -14,14 +14,13 @@ import { HomeComponent } from 'src/app/home/home.component';
 import { CartComponent } from 'src/app/cart/cart.component';
 import { BuyComponent } from 'src/app/buy/buy.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AboutusComponent } from 'src/aboutus/aboutus.component';
+import { AboutusComponent } from 'src/app/aboutus/aboutus.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
 import { CareerComponent } from './career/career.component';
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
- // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -48,7 +47,7 @@ import { LoginComponent } from './login/login.component';
 
 
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 
 
