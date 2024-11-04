@@ -41,7 +41,9 @@ export class HeaderComponent implements OnInit {
 food(){
   this.route.navigate(['food'])
 }
-
+signup(){
+  this.route.navigate(['sign'])
+}
 login(){
   this.route.navigate(['login'])
 }

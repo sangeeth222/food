@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
   emailForm: FormGroup | undefined;
 
   showPassword = false;
+  loginForm: any;
+  
 
 
   togglePasswordVisibility() {
@@ -52,6 +54,8 @@ export class SignupComponent implements OnInit {
   }
   onclose() {
     this.display = 'none'
+    // this.route.navigate([''])
+
   }
 
   ngOnInit() {
@@ -59,7 +63,7 @@ export class SignupComponent implements OnInit {
  
   signupentity: Signupentity = new Signupentity()
   post() {
-
+     
     this.signupentity['userName'] = this.signupForm.controls['name'].value?.toString();
     this.signupentity.mobileNo = this.signupForm.controls['number'].value ? +this.signupForm.controls['number'].value : undefined;
     this.signupentity['emailId'] = this.signupForm.controls['email'].value?.toString();
@@ -71,9 +75,22 @@ export class SignupComponent implements OnInit {
 
 
       if (res && res.userName) {
-        this.moduledata = `Welcome To Login Page ${res.userName}`
+        window.localStorage.setItem("res", JSON.stringify(res));
 
-      
+        this.moduledata = `Sign up Successfully ${res.userName}`
+ 
+      }
+      if (res && res.role) {
+        if (res.role === "ROLE_ADMIN" ) {
+          this.route.navigate(['nav']);
+          this.snackbar.showSuccessMessage('Admin Login successfully ' + res.userName ); 
+        } else if (res.role === "ROLE_USER" ) {
+          this.route.navigate(['']);
+          this.snackbar.showSuccessMessage('User Login successfully ' + res.userName ); 
+        }
+      } else {
+        console.error("Response object or role property is null or undefined.");
+        // Handle the case where res or res.role is null or undefined
       }
       this.displaymodel();
       const response = res;
@@ -85,7 +102,7 @@ export class SignupComponent implements OnInit {
       }
     },
       (error: any) => {
-        if (error.status === 401) {
+         if (error.status === 401) {
           this.moduledata = error.error;
           this.displaymodel();
           
@@ -101,4 +118,9 @@ export class SignupComponent implements OnInit {
   login(){
     this.route.navigate(['login'])
   }
+
+  get userName() {
+    return this.loginForm.get('username');
+  }
+ 
 }
