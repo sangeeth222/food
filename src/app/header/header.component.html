@@ -56,7 +56,7 @@
         <ul class="nav align-middle ms-5">
 
           <li class="nav-item ">
-            <a class="nav-link style   " (click)="login()" *ngIf="!userName">𝙇𝙊𝙂𝙄𝙉</a>
+            <a class="nav-link style   " (click)="login()" (click)="signup()" *ngIf="!userName">𝙇𝙊𝙂𝙄𝙉</a>
             <p class="out me-5 mt-2 ">{{userName}}
               <button class="btn btn-outline-success ms-3" *ngIf="userName" (click)="logout()"> 𝐋𝐎𝐆 𝐎𝐔𝐓</button>
             </p>

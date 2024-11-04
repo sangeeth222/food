@@ -30,6 +30,7 @@ export class BuyComponent implements OnInit {
   userById: string | undefined;
   city: any;
   country: any;
+  imagePaths: any;
   
   
 
@@ -45,11 +46,17 @@ export class BuyComponent implements OnInit {
 
   }
 
-  
-  getImage(image: String): String {
-    
-    return `http://localhost:8080/products/getProductImage/${image}`;
-}
+  getImage(id: number) {
+    this.api.get('/products/getproductDetailsById/' + id).subscribe(
+      (res) => {
+        this.imagePaths[id] = res.filePath; // Store the image path in the imagePaths object
+      },
+      (error) => {
+        console.error('Error fetching image:', error);
+      }
+    );
+  }
+
 cart(){
   this.route.navigate(['cart'])
   
