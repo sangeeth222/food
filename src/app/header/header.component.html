@@ -29,7 +29,8 @@
               <div class="sub-dropdown box " *ngFor="let data of categoryitem">
                 <a>{{data.categoryName}}</a>
                 <div class="sub-dropdown-content ">
-                  <a *ngFor="let item of data.subcategory" (click)="navigateToFood(item.id)">{{item.subCategoryName}}</a>
+                  <a *ngFor="let item of data.subcategory"
+                    (click)="navigateToFood(item.id)">{{item.subCategoryName}}</a>
 
                   <!-- <a *ngFor="let item of data.subcategory" href="/food/?id={{item.id}}"> {{item.subCategoryName}}</a> -->
 
@@ -53,28 +54,49 @@
 
         </div>
 
-        <ul class="nav align-middle ms-5">
 
-          <li class="nav-item ">
-            <a class="nav-link style   " (click)="login()" (click)="signup()" *ngIf="!userName">𝙇𝙊𝙂𝙄𝙉</a>
-            <p class="out me-5 mt-2 ">{{userName}}
-              <button class="btn btn-outline-success ms-3" *ngIf="userName" (click)="logout()"> 𝐋𝐎𝐆 𝐎𝐔𝐓</button>
+        <ul class="nav align-middle ms-5">
+          <li class="nav-item">
+            <!-- Login Button (only shown if userName is not set) -->
+            <a class="nav-link" *ngIf="!userName" (click)="login()">𝙇𝙊𝙂𝙄𝙉</a>
+
+            <!-- Username and Logout Button (only shown if userName is set) -->
+            <p class="out me-5 mt-2">
+              {{ userName }}
+              <button class="btn btn-outline-success ms-3" *ngIf="userName" (click)="showLogoutConfirmation()">
+                𝐋𝐎𝐆 𝐎𝐔𝐓
+              </button>
             </p>
           </li>
-
-
-
         </ul>
+
+        <!-- Logout Confirmation Modal -->
+        <div *ngIf="displayLogoutConfirmation" class="modal">
+          <div class="modal-dialog ">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">Confirm Logout</h5>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">Are you sure you want to log out?</div>
+
+              <!-- Modal Footer with Cancel and Logout Buttons -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeLogoutConfirmation()">
+                  Cancel
+                </button>
+                <button type="button" class="btn btn-danger" (click)="confirmLogout()">
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
       </div>
-
-
     </div>
-
-
-
   </nav>
-
 </div>
-

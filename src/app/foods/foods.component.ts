@@ -78,7 +78,7 @@ export class FoodsComponent implements OnInit {
   }
 
   buy() {
-    this.route.navigate(['cart']);
+    this.route.navigate(['buy']);
   }
 
   loadImage() {
