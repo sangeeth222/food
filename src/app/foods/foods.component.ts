@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/api.service';
 import { SnackbarService } from 'src/app/snackbar.service';
@@ -10,21 +9,27 @@ import { SnackbarService } from 'src/app/snackbar.service';
   styleUrls: ['./foods.component.css']
 })
 export class FoodsComponent implements OnInit {
-
-  userById: any;
-  category: String;
-  veg: any;
   userId: any;
   nonveg: any[] = [];
   imagePaths: { [key: number]: string } = {};
+  category: any;
 
-  constructor(private api: ApiService, private route: Router, public dialog: MatDialog, private snackbar: SnackbarService, private routes: ActivatedRoute) {
-    this.category = this.routes.snapshot.queryParams['id'];
-  }
+  constructor(
+    private api: ApiService,
+    private route: Router,
+    private routes: ActivatedRoute,
+    private snackbar: SnackbarService
+  ) { }
 
   ngOnInit() {
-    this.gets();
+    // Subscribe to query parameters to react to changes
+    this.routes.queryParams.subscribe(params => {
+      this.category = params['id'];
+      console.log(this.category, "<========");
+      this.getProductsByCategory(); // Fetch products when category changes
+    });
 
+    // Get user ID from local storage
     let data = localStorage.getItem("res");
     if (data) {
       let item = JSON.parse(data);
@@ -32,12 +37,10 @@ export class FoodsComponent implements OnInit {
     }
   }
 
-  gets() {
+  getProductsByCategory() {
     this.api.get('/products/getByCategory/' + this.category).subscribe((res) => {
-      console.log("success");
+      console.log("Fetched products successfully");
       this.nonveg = res;
-      this.veg = res;
-      console.log(this.nonveg);
 
       // Fetch image paths for each product
       this.nonveg.forEach(product => {
@@ -59,15 +62,14 @@ export class FoodsComponent implements OnInit {
 
   post(data: any) {
     if (this.userId) {
-      let payload: any = {};
-      payload['productName'] = data.productName;
-      payload['quantity'] = 1;
-      payload['price'] = data.price;
-      payload['image'] = data.image; // You might want to update this to use the imagePaths
-      payload['user'] = {
-        "id": this.userId
+      let payload: any = {
+        productName: data.productName,
+        quantity: 1,
+        price: data.price,
+        image: this.imagePaths[data.id], // Use the imagePaths for the correct image
+        user: { id: this.userId },
+        productId: data.id
       };
-      payload['productId'] = data.id;
 
       this.api.post("/cart", payload).subscribe((res) => {
         this.snackbar.showSuccessMessage(res.message);
