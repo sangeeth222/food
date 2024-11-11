@@ -10,9 +10,9 @@ import { ApiService } from 'src/api.service';
 export class HeaderComponent implements OnInit {
   categoryitem: any[] = [];
   userName: any;
-  displayLogoutConfirmation: boolean = false; // For logout confirmation modal
+  displayLogoutConfirmation: boolean = false;  
 
-  constructor(private route: Router, private api: ApiService) { }
+  constructor(private route: Router, private api: ApiService) {}
 
   ngOnInit() {
     this.getall();

@@ -9,50 +9,50 @@ import { SnackbarService } from 'src/app/snackbar.service';
   styleUrls: ['./foods.component.css']
 })
 export class FoodsComponent implements OnInit {
-  userId: any;
-  nonveg: any[] = [];
-  imagePaths: { [key: number]: string } = {};
-  category: any;
+  userId: any; // Store the ID of the logged-in user
+  nonVegItems: any[] = []; // Array to hold non-vegetarian products
+  imagePaths: { [key: number]: string } = {}; // Object to map product IDs to image paths
+  category: any; // Holds the current category from query parameters
 
   constructor(
-    private api: ApiService,
-    private route: Router,
-    private routes: ActivatedRoute,
-    private snackbar: SnackbarService
-  ) { }
+    private apiService: ApiService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private snackbarService: SnackbarService
+  ) {}
 
   ngOnInit() {
     // Subscribe to query parameters to react to changes
-    this.routes.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe(params => {
       this.category = params['id'];
       console.log(this.category, "<========");
-      this.getProductsByCategory(); // Fetch products when category changes
+      this.fetchProductsByCategory(); // Fetch products when category changes
     });
 
     // Get user ID from local storage
-    let data = localStorage.getItem("res");
-    if (data) {
-      let item = JSON.parse(data);
-      this.userId = item.id;
+    const userData = localStorage.getItem("res");
+    if (userData) {
+      const userItem = JSON.parse(userData);
+      this.userId = userItem.id; // Ensure this is correctly set
     }
   }
 
-  getProductsByCategory() {
-    this.api.get('/products/getByCategory/' + this.category).subscribe((res) => {
+  fetchProductsByCategory() {
+    this.apiService.get(`/products/getByCategory/${this.category}`).subscribe((response) => {
       console.log("Fetched products successfully");
-      this.nonveg = res;
+      this.nonVegItems = response; // Set the fetched products to nonVegItems
 
       // Fetch image paths for each product
-      this.nonveg.forEach(product => {
-        this.getImage(product.id);
+      this.nonVegItems.forEach(product => {
+        this.fetchImage(product.id);
       });
     });
   }
 
-  getImage(id: number) {
-    this.api.get('/products/getproductDetailsById/' + id).subscribe(
-      (res) => {
-        this.imagePaths[id] = res.filePath; // Store the image path in the imagePaths object
+  fetchImage(productId: number) {
+    this.apiService.get(`/products/getproductDetailsById/${productId}`).subscribe(
+      (response) => {
+        this.imagePaths[productId] = response.filePath; // Store the image path in the imagePaths object
       },
       (error) => {
         console.error('Error fetching image:', error);
@@ -60,30 +60,45 @@ export class FoodsComponent implements OnInit {
     );
   }
 
-  post(data: any) {
+  addToCart(product: any) {
     if (this.userId) {
-      let payload: any = {
-        productName: data.productName,
+      const payload = {
+        productName: product.productName,
         quantity: 1,
-        price: data.price,
-        image: this.imagePaths[data.id], // Use the imagePaths for the correct image
+        price: product.price,
+        image: this.imagePaths[product.id], // Use the imagePaths for the correct image
         user: { id: this.userId },
-        productId: data.id
+        productId: product.id
       };
 
-      this.api.post("/cart", payload).subscribe((res) => {
-        this.snackbar.showSuccessMessage(res.message);
+      this.apiService.post("/cart", payload).subscribe((response) => {
+        this.snackbarService.showSuccessMessage(response.message);
       });
     } else {
-      this.route.navigate(['login']);
+      this.router.navigate(['login']); // Redirect to login if user is not logged in
     }
   }
 
   buy() {
-    this.route.navigate(['buy']);
+    
+    console.log('User  ID:', this.userId); // Debugging line
+    if (this.userId) {
+      this.router.navigate(['buy']); // Navigate to buy page if user is logged in
+    } else {
+      console.log('Redirecting to login'); // Debugging line
+      this.router.navigate(['login']); // Redirect to login if user is not logged in
+    }
+
   }
 
   loadImage() {
-    console.log("Image Loaded Success");
+    console.log("Image Loaded Successfully");
   }
 }
+
+
+
+
+
+
+

@@ -8,121 +8,62 @@ import { ApiService } from 'src/api.service';
   styleUrls: ['./buy.component.css']
 })
 export class BuyComponent implements OnInit {
-  id: any;
-  data: any;
-  
- 
-  buy: any;
   userId: any;
-  cartItems: { productName: string, quality: string, price: number }[] = [];
-  inputValue: number = 1;
-  total: any;
-  addItems: any;
+  cartItems: { productName: string, quantity: number, price: number }[] = [];
+  totalAmount: number = 0;
 
-  
-  // ordercode
-  name: any;
-  email: any;
-  address: any;
-  mobileNumber: any;
-  pincode: any;
-  totalAmount: any;
-  userById: string | undefined;
-  city: any;
-  country: any;
-  imagePaths: any;
-  
-  
+  // Order details
+  name: string = '';
+  email: string = '';
+  address: string = '';
+  mobileNumber: string = '';
+  pincode: string = '';
+  city: string = '';
+  country: string = '';
 
-
-  
-  
-  constructor(private route: Router, private routes: ActivatedRoute, private api: ApiService) {
-    this.id = this.routes.snapshot.queryParams['id'];
-  }
+  constructor(private route: Router, private routes: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
-    this.getall()
-
+    this.getAllCartItems();
   }
 
-  getImage(id: number) {
-    this.api.get('/products/getproductDetailsById/' + id).subscribe(
-      (res) => {
-        this.imagePaths[id] = res.filePath; // Store the image path in the imagePaths object
-      },
-      (error) => {
-        console.error('Error fetching image:', error);
-      }
-    );
-  }
-
-cart(){
-  this.route.navigate(['cart'])
-  
-}
-
-
-post(){
-  let data:any={}
-    data['name']=this.name;
-    data['email']=this.email;
-    data['address']=this.address;
-    data['mobileNumber']=this.mobileNumber;
-    data['pincode']=this.pincode;
-    data['totalAmount']=this.getGrandTotal();
-    data['city']=this.city;
-    data['country']=this.country;
-    data['userId'] = this.userById;
-    data['orderItem'] = this.cartItems;
-  this.api.post('/orders/saves',data).subscribe((res) => {
-    console.log(res);
-    this.route.navigate(['']);
-    
-})
-   
-
-    
-  ;
-}
-
-
-getall() {
-  let data = localStorage.getItem("res");
-  if (data) {
-    console.log(JSON.parse(data));
-    let item = JSON.parse(data);
-    this.userById = item.id;
-  }
-  
-  this.api.get('/cart/userById/' + this.userById).subscribe((res) => {
-    console.log(res);
-    this.addItems = res;
-    // Transform the array
-    this.cartItems = res.map((item: { productName: any; quantity: any; price: any; }) => {
-     this.totalPrice(item);
-
-      return {
+  getAllCartItems() {
+    const data = localStorage.getItem("res");
+    if (data) {
+      const item = JSON.parse(data);
+      this.userId = item.id;
+    }
+    this.api.get(`/cart/userById/${this.userId}`).subscribe((res) => {
+      this.cartItems = res.map((item: { productName: string; quantity: number; price: number; }) => ({
         productName: item.productName,
-        quantity  : item.quantity,
+        quantity: item.quantity,
         price: item.price
-
-      };
+      }));
+      this.calculateTotalAmount();
     });
-  });
-}
-totalPrice(item: any) {
-  this.totalAmount = item.price * item.quantity
-  return item.price * item.quantity; 
-}
-getGrandTotal(): number {
-  let grandTotal = 0;
-
-  for (let item of this.addItems) {
-    grandTotal += this.totalPrice(item);
   }
 
-  return grandTotal;
-}
+  calculateTotalAmount() {
+    this.totalAmount = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  }
 
+  post() {
+    const orderData = {
+      name: this.name,
+      email: this.email,
+      address: this.address,
+      mobileNumber: this.mobileNumber,
+      pincode: this.pincode,
+      totalAmount: this.totalAmount,
+      city: this.city,
+      country: this.country,
+      userId: this.userId,
+      orderItem: this.cartItems
+    };
+
+    this.api.post('/orders/saves', orderData).subscribe((res) => {
+      console.log(res);
+      this.route.navigate(['']);
+    });
+  }
 }
