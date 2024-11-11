@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   addItems: any[] = [];
   imagePaths: { [key: number]: string } = {};
 
-  constructor(private api: ApiService, private route: Router, private routes: ActivatedRoute) {}
+  constructor(private api: ApiService, private route: Router, private routes: ActivatedRoute) { }
 
   ngOnInit() {
     this.getall();
@@ -25,6 +25,7 @@ export class CartComponent implements OnInit {
       this.userById = item.id;
     }
     this.api.get('/cart/userById/' + this.userById).subscribe((res) => {
+      console.log(this.addItems, "amount");
       this.addItems = res;
       this.addItems.forEach(product => {
         this.getImage(product.id);
@@ -44,12 +45,13 @@ export class CartComponent implements OnInit {
   }
 
   updateQuantity(index: number, event: Event): void {
-    const newQuantity = ( event.target as HTMLInputElement).valueAsNumber;
+    const newQuantity = (event.target as HTMLInputElement).valueAsNumber;
     this.addItems[index].quantity = newQuantity;
   }
 
   totalPrice(item: any): number {
     return item.price * item.quantity;
+
   }
 
   delete(item: any) {
@@ -58,8 +60,11 @@ export class CartComponent implements OnInit {
     });
   }
 
-  getGrandTotal(): number {
-    return this.addItems.reduce((total, item) => total + this.totalPrice(item), 0);
+  getGrandTotal(): any {
+     const val= this.addItems.reduce((total, item) => total + this.totalPrice(item), 0);
+localStorage.setItem('val',val)
+   return this.addItems.reduce((total, item) => total + this.totalPrice(item), 0);
+ 
   }
 
   buy() {

@@ -11,6 +11,7 @@ export class BuyComponent implements OnInit {
   userId: any;
   cartItems: { productName: string, quantity: number, price: number }[] = [];
   totalAmount: number = 0;
+  
 
   // Order details
   name: string = '';
@@ -20,11 +21,13 @@ export class BuyComponent implements OnInit {
   pincode: string = '';
   city: string = '';
   country: string = '';
+  total: any | null;
 
   constructor(private route: Router, private routes: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
     this.getAllCartItems();
+    this.total=localStorage.getItem('val');
   }
 
   getAllCartItems() {
@@ -34,18 +37,19 @@ export class BuyComponent implements OnInit {
       this.userId = item.id;
     }
     this.api.get(`/cart/userById/${this.userId}`).subscribe((res) => {
+      console.log(this.cartItems);
       this.cartItems = res.map((item: { productName: string; quantity: number; price: number; }) => ({
         productName: item.productName,
         quantity: item.quantity,
         price: item.price
       }));
-      this.calculateTotalAmount();
+     // this.calculateTotalAmount();
     });
   }
 
-  calculateTotalAmount() {
-    this.totalAmount = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  }
+  // calculateTotalAmount() {
+  //   this.totalAmount = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  // }
 
   post() {
     const orderData = {
@@ -54,12 +58,13 @@ export class BuyComponent implements OnInit {
       address: this.address,
       mobileNumber: this.mobileNumber,
       pincode: this.pincode,
-      totalAmount: this.totalAmount,
+      totalAmount: this.total,
       city: this.city,
       country: this.country,
       userId: this.userId,
       orderItem: this.cartItems
     };
+console.log(this.cartItems);
 
     this.api.post('/orders/saves', orderData).subscribe((res) => {
       console.log(res);
