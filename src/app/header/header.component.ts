@@ -8,7 +8,7 @@ import { ApiService } from 'src/api.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  nonveg: any[] = [];
+   nonveg: any[] = [];
   categoryitem:any[]=[];
   // userById: any[]=[];
   userName: any;
@@ -19,11 +19,17 @@ export class HeaderComponent implements OnInit {
   constructor(private route:Router ,private api:ApiService) { 
     this.filteredItems = this.items;
   }
+ 
+  categoryitem: any[] = [];
+  userName: any;
+  displayLogoutConfirmation: boolean = false; // For logout confirmation modal
 
+  constructor(private route: Router, private api: ApiService) { }
+ 
   ngOnInit() {
     this.getall();
     let data = localStorage.getItem("res");
-
+ 
 
     if (data) {
       
@@ -76,3 +82,55 @@ filterItems(): void {
   );
 }
 }
+ 
+    if (data) {
+      let item = JSON.parse(data);
+      this.userName = item.userName;
+    }
+  }
+
+  navigateToFood(id: number) {
+    this.route.navigate(['/food'], { queryParams: { id: id } });
+    console.log("Navigated to food with id:", id);
+  }
+
+  signup() {
+    this.route.navigate(['sign']);
+  }
+
+  login() {
+    this.route.navigate(['login']);
+  }
+
+  home() {
+    this.route.navigate(['']);
+  }
+
+  cart() {
+    this.route.navigate(['cart']);
+  }
+
+  getall() {
+    this.api.get('/category/getall').subscribe((res) => {
+      console.log(res);
+      this.categoryitem = res;
+    });
+  }
+
+  // Logout confirmation methods...
+  showLogoutConfirmation() {
+    this.displayLogoutConfirmation = true;
+  }
+
+  closeLogoutConfirmation() {
+    this.displayLogoutConfirmation = false;
+  }
+
+  confirmLogout() {
+    localStorage.removeItem("res");
+    this.userName = null;
+    this.route.navigate(['login']);
+    this.closeLogoutConfirmation();
+  }
+}
+ 

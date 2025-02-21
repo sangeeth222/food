@@ -13,6 +13,9 @@
     item: any;
     inputValue: number = 1;
     total: any;
+ 
+    imagePaths: { [key: number]: string } = {};
+ 
 
     updateQuantity(index: number, event: Event): void {
       const newQuantity = (event.target as HTMLInputElement).valueAsNumber;
@@ -38,14 +41,15 @@
     getall() {
       let data = localStorage.getItem("res");
       if (data) {
-        console.log(JSON.parse(data));
-        let item = JSON.parse(data);
+         console.log(JSON.parse(data));
+         console.log(JSON.parse(data),"get image");
+         let item = JSON.parse(data);
         this.userById = item.id;
       }
       this.api.get('/cart/userById/' + this.userById).subscribe((res) => {
         console.log(res);
         this.addItems = res;
-      });
+       });
     }
 
     
@@ -54,7 +58,30 @@
       return `http://localhost:8080/products/getProductImage/${image}`;
   }
 
-    delete(item: any) {
+ 
+        console.log(this.addItems);
+
+        // Fetch image paths for each product
+        this.addItems.forEach(product => {
+          this.getImage(product.id);
+        });
+      });
+       
+    }
+
+    getImage(id: number) {
+      console.log("img load success");
+      
+      this.api.get('/products/getproductDetailsById/' + id).subscribe(
+        (res) => {
+          this.imagePaths[id] = res.filePath; // Store the image path in the imagePaths object
+        },
+        (error) => {
+          console.error('Error fetching image:', error);
+        }
+      );
+    }
+     delete(item: any) {
       this.api.delete('/cart/' + item.id).subscribe((res) => {
         console.log(item);
         this.getall();
@@ -78,4 +105,8 @@
     buy() {
       this.route.navigate(['buy']);
     }
-  }
+ 
+    loadImage() {
+      console.log("Image Loaded Success");
+    }
+   }

@@ -1,4 +1,4 @@
-.bg-img{
+ .bg-img{
     background-image: url('/assets/back1.jpg');
     background-repeat: no-repeat;
    background-position: center; 
@@ -32,3 +32,49 @@
 .img{
     background-color: white;
 }
+ 
+.bgframe {
+    background-image: url('../../assets/back1.jpg');
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-style {
+    background-color: orange;
+}
+
+.color {
+    color: blue;
+}
+
+.style {
+    font-style: oblique;
+    color: black;
+    text-align: center;
+}
+
+.imgs {
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+}
+
+.font {
+    color: rgb(227, 11, 101);
+}
+
+.colour {
+    color: rgb(12, 12, 12);
+}
+
+.img {
+    background-color: white;
+}
+ 
