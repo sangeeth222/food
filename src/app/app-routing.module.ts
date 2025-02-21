@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BuyComponent } from 'src/buy/buy.component';
-import { CartComponent } from 'src/cart/cart.component';
-import { FoodsComponent } from 'src/foods/foods.component';
-import { HeaderComponent } from 'src/header/header.component';
-import { HomeComponent } from 'src/home/home.component';
-import { LoginComponent } from 'src/login/login.component';
-import { SignupComponent } from 'src/signup/signup.component';
-import { AboutusComponent } from 'src/aboutus/aboutus.component';
-import { ContactComponent } from 'src/contact/contact.component';
+import { BuyComponent } from 'src/app/buy/buy.component';
+import { CartComponent } from 'src/app/cart/cart.component';
+import { FoodsComponent } from 'src/app/foods/foods.component';
+import { HeaderComponent } from 'src/app/header/header.component';
+import { HomeComponent } from 'src/app/home/home.component';
+import { LoginComponent } from 'src/app/login/login.component';
+import { SignupComponent } from 'src/app/signup/signup.component';
+import { AboutusComponent } from 'src/app/aboutus/aboutus.component';
+import { ContactComponent } from 'src/app/contact/contact.component';
 import { CareerComponent } from './career/career.component';
 
 const routes: Routes = [

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
-import { HeaderComponent } from 'src/header/header.component';
+import { HeaderComponent } from 'src/app/header/header.component';
 import { UploadComponent } from './upload/upload.component';
 import { UpdateComponent } from './update/update.component';
 import { CategorysComponent } from './categorys/categorys.component';
