@@ -1,3 +1,38 @@
+ .bg-img{
+    background-image: url('/assets/back1.jpg');
+    background-repeat: no-repeat;
+   background-position: center; 
+    background-size: cover;
+    height: 86vh;
+} 
+.input-style{
+    background-color:orange;
+
+}
+.style{
+   font-style:oblique ;
+   color:black;
+   text-align: center;
+   
+}
+.imgs{
+    background-color: white;
+}
+
+.font{
+    color:rgb(227, 11, 101);
+    
+}
+.colour{
+    color:rgb(12, 12, 12);
+}
+/* .bgs{
+    background-color:rgb(162, 202, 216);
+} */
+.img{
+    background-color: white;
+}
+ 
 .bgframe {
     background-image: url('../../assets/back1.jpg');
     background-repeat: no-repeat;
@@ -42,3 +77,4 @@
 .img {
     background-color: white;
 }
+ 

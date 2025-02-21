@@ -5,7 +5,9 @@ import { CartComponent } from 'src/app/cart/cart.component';
 import { FoodsComponent } from 'src/app/foods/foods.component';
 import { HeaderComponent } from 'src/app/header/header.component';
 import { HomeComponent } from 'src/app/home/home.component';
-
+ 
+import { LoginComponent } from 'src/app/login/login.component';
+ 
 import { SignupComponent } from 'src/app/signup/signup.component';
 import { AboutusComponent } from 'src/app/aboutus/aboutus.component';
 import { ContactComponent } from 'src/app/contact/contact.component';

@@ -7,10 +7,11 @@
       <div class="col mt-4 " *ngFor="let item of addItems; let i=index">
         <div>
           <div class="p-4  mt-4 img-thumbnail ">
-            <img [src]="imagePaths[item.id]" (onload)="loadImage()" width="300px" height="250px" *ngIf="imagePaths[item.id]">
+             <img [src]="getImage(item.image)" width="300px" height="250px">
+             <img [src]="imagePaths[item.id]" (onload)="loadImage()" width="300px" height="250px" *ngIf="imagePaths[item.id]">
 
              
-            <div class="style ms-5 mt-4 ">
+             <div class="style ms-5 mt-4 ">
               <h5 class="style">Product Name: {{item.productName}}</h5>
               <h5 class="style">Price:{{item.price}}</h5>
               <h5 class="style">Quantity:
