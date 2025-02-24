@@ -42,9 +42,17 @@
         <img [src]="selectedImageSrc" alt="Selected Image" class="img-thumbnail" height="100px" width="100px">
       </div>
 
-      <div class="d-grid">
+   <button type="button" class="btn btn-primary ms-3" (click)="register()">Upload</button>
+</form>
+<div class="row">
+  <div class="col-md-12 text-center">
+      <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+  </div>
+</div>
+        <div class="d-grid">
         <button type="button" class="btn btn-primary" (click)="register()">Upload</button>
       </div>
     </form>
   </div>
 </div>
+ 

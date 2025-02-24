@@ -1,4 +1,4 @@
-<form *ngIf="formgroup" [formGroup]="formgroup" (ngSubmit)="submit()">
+<form *ngIf="formgroup" [formGroup]="formgroup">
   <div class="form-group">
     <label for="CategoryName">Category Name:</label>
     <input type="text" class="form-control" id="CategoryName" placeholder="Enter Category Name" formControlName="categoryName">
@@ -14,5 +14,10 @@
 
   <button type="button" (click)="addSubcategory()">Add Subcategory</button>
 
-  <button type="submit" class="btn btn-primary ms-3">Upload</button>
+  <button type="submit" class="btn btn-primary ms-3" (click)="submit()">Upload</button>
 </form>
+<div class="row">
+  <div class="col-md-12 text-center">
+      <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+  </div>
+</div>

@@ -19,11 +19,14 @@ export class UploadComponent implements OnInit {
   selectedImageSrc: string | ArrayBuffer | null = null;  
    
 
+   constructor(private fb: FormBuilder, private apiService: ApiService,private router:Router) { }
+ 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router:Router) { }
-
+ 
   ngOnInit() {
     this.getCategories();
     this.initializeForm();
+    
   }
 
   initializeForm() {
@@ -69,7 +72,7 @@ export class UploadComponent implements OnInit {
   getCategories() {
     this.apiService.get('/category/getall').subscribe((res: any[]) => {
       this.categoryitem = res;
-      console.log(res);
+      console.log(res,'-->catego');
       
     });
   }
@@ -96,5 +99,9 @@ export class UploadComponent implements OnInit {
     } else {
       this.subcategories = [];
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/nav']); // ✅ Navigate back to the list page
   }
 }

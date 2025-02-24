@@ -23,6 +23,7 @@ export class FoodsComponent implements OnInit {
   nonveg: any[] = [];
 
   ngOnInit() {
+    
     this.gets();
 
     let data = localStorage.getItem("res");

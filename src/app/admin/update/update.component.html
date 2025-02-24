@@ -1,1 +1,87 @@
-<p>update works!</p>
+<form [formGroup]="formgroup" *ngIf="formgroup" class="container">
+  <div class="row">
+    <!-- Product Name & Category Name in One Row -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="ProductName">Product Name:</label>
+        <input type="text" class="form-control" id="ProductName" placeholder="Product Name" 
+          formControlName="ProductName" [value]="ProductDetails?.productName" required>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="CategoryId">Category Name:</label>
+        <select class="form-control" id="CategoryId" formControlName="CategoryId" 
+          (change)="updateSelectedCategory($event)" [value]="ProductDetails.category" required>
+          <option value="">Select Category</option>
+          <option *ngFor="let category of categoryitem" [value]="category.id">
+            {{ category.categoryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Subcategory Name & Price in One Row -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="SubCategoryId">Subcategory Name:</label>
+        <select class="form-control" id="SubCategoryId" formControlName="SubCategoryId" required>
+          <option value="">Select SubCategory</option>
+          <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">
+            {{ subcategory.subCategoryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Price">Price:</label>
+        <input type="text" class="form-control" id="Price" placeholder="Enter the Price" 
+          formControlName="Price" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Quantity & Image Upload in One Row -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Quantity">Quantity:</label>
+        <input type="text" class="form-control" id="Quantity" placeholder="Enter the Quantity" 
+          formControlName="Quantity" required>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Image">Image:</label>
+        <input type="file" class="form-control-file form-control" id="Image" 
+          (change)="onFileChange($event)" >
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Image Preview -->
+    <div class="col-md-6">
+      <div *ngIf="selectedImageSrc || ProductDetails?.imageUrl">
+        <img [src]="selectedImageSrc || ProductDetails?.imageUrl" 
+             alt="Selected Image" class="img-thumbnail" 
+             height="100px" width="100px">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <div class="col-md-6 text-center">
+      <button type="button" class="btn btn-primary" (click)="update()">Upload</button>
+    </div>
+    <div class="col-md-6 text-center">
+      <button class="btn btn-secondary" (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+</form>

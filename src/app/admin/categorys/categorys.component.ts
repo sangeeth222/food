@@ -2,6 +2,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/api.service';
 
@@ -15,7 +16,8 @@ export class CategorysComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http:ApiService
+    private http:ApiService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +63,9 @@ export class CategorysComponent implements OnInit {
         console.error("An error occurred:", error.error);
       }
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/nav']); // ✅ Navigate back to the list page
   }
 }
