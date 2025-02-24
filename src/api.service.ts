@@ -11,10 +11,9 @@ export class ApiService {
 
 
   constructor(private http:HttpClient) { }
-
-  baseurl="http://localhost:8080";
   
-  
+  baseurl="https://foodappapi-b7ig.onrender.com";
+ // "https://foodapi-mq1q.onrender.com";
   
   post(path:any,data:any):Observable<any>{
     return this.http.post(this.baseurl+path,data)
@@ -36,7 +35,7 @@ export class ApiService {
   }
 
   postProduct(formData: FormData): Observable<any> {
-    return this.http.post(this.baseurl + '/products', formData);
+    return this.http.post(this.baseurl + '/products/', formData);
   }
   // postCategory(path: string, data: any): Observable<any> {
   //   return this.http.post<any>(this.baseurl + '/category/save', data);

@@ -10,10 +10,11 @@ import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   {path:"",component:NavComponent},
-  //{path:"",component:ListComponent},
+   //{path:"",component:ListComponent},
   {path:"list",component:ListComponent},
   {path:"view/:id",component:ViewComponent},
-  {path:"login",component:HeaderComponent},
+   {path:"nav",component:NavComponent},
+   {path:"login",component:HeaderComponent},
   {path:"upload",component:UploadComponent},
   {path:"update/:id",component:UpdateComponent},
   {path:"categorys",component:CategorysComponent}

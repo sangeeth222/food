@@ -1,52 +1,58 @@
-<form [formGroup]="formgroup" *ngIf="formgroup">
-  <div class="form-group">
-    <label for="ProductName">Product Name:</label>
-    <input type="text" class="form-control" id="ProductName" placeholder="Product Name" formControlName="ProductName"
-      required>
-  </div>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card p-4 shadow-lg custom-form-card">
+    <h2 class="text-center mb-4">Product Registration</h2>
+    <form [formGroup]="formgroup" *ngIf="formgroup">
+      <div class="form-group mb-3">
+        <label for="ProductName" class="form-label">Product Name:</label>
+        <input type="text" class="form-control" id="ProductName" placeholder="Product Name" formControlName="ProductName" required>
+      </div>
 
-  <div class="form-group">
-    <label for="CategoryId">Category Name:</label>
-    <select class="form-control " id="CategoryId" formControlName="CategoryId" (change)="updateSelectedCategory($event)"
-      required>
-      <option value="">Select Category</option>
-      <option *ngFor="let category of categoryitem" [value]="category.id">{{ category.categoryName }}</option>
-    </select>
-  </div>
+      <div class="form-group mb-3">
+        <label for="CategoryId" class="form-label">Category Name:</label>
+        <select class="form-control" id="CategoryId" formControlName="CategoryId" (change)="updateSelectedCategory($event)" required>
+          <option value="">Select Category</option>
+          <option *ngFor="let category of categoryitem" [value]="category.id">{{ category.categoryName }}</option>
+        </select>
+      </div>
 
-  <div class="form-group">
-    <label for="SubCategoryId">Subcategory Name:</label>
-    <select class="form-control" id="SubCategoryId" formControlName="SubCategoryId" required>
-      <option value="">Select SubCategory</option>
-      <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{ subcategory.subCategoryName }}
-      </option>
-    </select>
-  </div>
+      <div class="form-group mb-3">
+        <label for="SubCategoryId" class="form-label">Subcategory Name:</label>
+        <select class="form-control" id="SubCategoryId" formControlName="SubCategoryId" required>
+          <option value="">Select SubCategory</option>
+          <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{ subcategory.subCategoryName }}</option>
+        </select>
+      </div>
 
-  <div class="form-group">
-    <label for="Price">Price:</label>
-    <input type="text" class="form-control" id="Price" placeholder="Enter the Price" formControlName="Price" required>
-  </div>
-  <div class="form-group">
-    <label for="Quentity">Quantity:</label>
-    <input type="text" class="form-control" id="Quantity" placeholder="Enter the Quantity" formControlName="Quantity"
-      required>
-  </div>
+      <div class="form-group mb-3">
+        <label for="Price" class="form-label">Price:</label>
+        <input type="text" class="form-control" id="Price" placeholder="Enter the Price" formControlName="Price" required>
+      </div>
 
-  <div class="form-group">
-    <label for="Image">Image:</label>
-    <input type="file" class="form-control-file form-control" id="Image" (change)="onFileChange($event)" required>
-  </div>
+      <div class="form-group mb-3">
+        <label for="Quantity" class="form-label">Quantity:</label>
+        <input type="text" class="form-control" id="Quantity" placeholder="Enter the Quantity" formControlName="Quantity" required>
+      </div>
 
-  <div *ngIf="selectedImageSrc" class="mb-2">
-    <img [src]="selectedImageSrc" alt="Selected Image" class="img-thumbnail form-control" height="100px" width="100px">
-  </div>
+      <div class="form-group mb-3">
+        <label for="Image" class="form-label">Image:</label>
+        <input type="file" class="form-control" id="Image" (change)="onFileChange($event)" required>
+      </div>
 
+      <div *ngIf="selectedImageSrc" class="mb-3">
+        <img [src]="selectedImageSrc" alt="Selected Image" class="img-thumbnail" height="100px" width="100px">
+      </div>
 
-  <button type="button" class="btn btn-primary ms-3" (click)="register()">Upload</button>
+   <button type="button" class="btn btn-primary ms-3" (click)="register()">Upload</button>
 </form>
 <div class="row">
   <div class="col-md-12 text-center">
       <button class="btn btn-primary" (click)="goBack()">Go Back</button>
   </div>
 </div>
+        <div class="d-grid">
+        <button type="button" class="btn btn-primary" (click)="register()">Upload</button>
+      </div>
+    </form>
+  </div>
+</div>
+ 

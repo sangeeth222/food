@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+ 
+import { Router } from '@angular/router';
+ 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
-}
+ 
+  constructor(private rou:Router){} 
+  
+  back() {
+    this.rou.navigate(['']);
+  
+    }
+ }

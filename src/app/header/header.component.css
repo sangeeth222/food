@@ -127,3 +127,122 @@ font-family: 'Times New Roman', Times, serif;
 
  
 
+ /* model css page */
+ 
+ /* Navigation Bar Styles */
+.nav {
+  align-items: center;
+  margin-left: 5rem;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.nav-link {
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.out {
+  margin-right: 5rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Button Styles */
+.btn-outline-success {
+  margin-left: 1rem;
+  border-color: green;
+  color: green;
+}
+
+.btn-outline-success:hover {
+  background-color: green;
+  color: #fff;
+}
+
+/* Modal Overlay */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+/* Modal Dialog */
+.modal-dialog {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+/* Modal Header, Body, Footer */
+.modal-header,
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.modal-footer .btn {
+  padding: 0.5rem 1rem;
+}
+
+/* Close Button */
+.close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Cancel and Logout Button Styles */
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* model css close */
+ 
