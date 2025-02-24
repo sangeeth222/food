@@ -1,0 +1,42 @@
+<h4>Product Details</h4>
+<hr>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="view-label">Product Name</label>
+            <p class="view-text">{{ ProductDetails?.productName }}</p>
+        </div>
+        <div class="col-md-6">
+            <label class="view-label">Price</label>
+            <p class="view-text">{{ ProductDetails?.price | currency:'INR' }}</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="view-label">Quantity</label>
+            <p class="view-text">{{ ProductDetails?.quantity }}</p>
+        </div>
+        <div class="col-md-6">
+            <label class="view-label">Category</label>
+            <p class="view-text">{{ ProductDetails?.category?.categoryName }}</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="view-label">Subcategory</label>
+            <p class="view-text">{{ ProductDetails?.subCategory?.subCategoryName }}</p>
+        </div>
+        <div class="col-md-6">
+            <label class="view-label">Image</label>
+            <img [src]="'assets/images/' + ProductDetails?.image" alt="Product Image" class="img-fluid" *ngIf="ProductDetails?.image">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+        </div>
+    </div>
+</div>

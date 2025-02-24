@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/api.service';
 
 @Component({
@@ -17,11 +18,12 @@ export class UploadComponent implements OnInit {
   formType: string = 'products';  
   selectedImageSrc: string | ArrayBuffer | null = null;  
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) { }
+  constructor(private fb: FormBuilder, private apiService: ApiService,private router:Router) { }
 
   ngOnInit() {
     this.getCategories();
     this.initializeForm();
+    
   }
 
   initializeForm() {
@@ -66,7 +68,7 @@ export class UploadComponent implements OnInit {
   getCategories() {
     this.apiService.get('/category/getall').subscribe((res: any[]) => {
       this.categoryitem = res;
-      console.log(res);
+      console.log(res,'-->catego');
       
     });
   }
@@ -93,5 +95,9 @@ export class UploadComponent implements OnInit {
     } else {
       this.subcategories = [];
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/nav']); // ✅ Navigate back to the list page
   }
 }

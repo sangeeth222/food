@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   constructor(private route:Router ) {
     
   }
+  fastfood(){
+    this.route.navigate(['/food'])
+  }
    
 about() {
   this.route.navigate(['about'])
