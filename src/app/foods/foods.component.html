@@ -1,42 +1,21 @@
 <app-header></app-header>
 <div class="container-fluid">
-   <div class=" m-5 d-flex justify-content-center">
-    <div class="row">
-      <div class="col mt-4 " *ngFor="let data of nonveg">
-        <div class="">
-          <div class="p-4  mt-4 img-thumbnail  ">
-            <img [src]="getImage(data.image)" width="350px" height="250px">
-            <div class=" color ms-5 mt-4 ">
-              <h5 class="color">Product Name: {{data.productName}}</h5>
-              <h5 class="color">Price:{{data.price}}</h5>
-
-            </div>
-            <div class="d-flex mt-3">
-              <button class="btn btn-small btn-outline-primary  ms-5 mt-3" style="width: 100px;"
-                (click)="buy();post(data)">BUY</button>
-
-              <button class="btn mt-2 button ms-5 class" (click)="post(data)">
-                <i class="fa-solid fa-cart-shopping "></i>
-              </button>
-
-   <div class="m-5 d-flex justify-content-center">
+  <div class="m-5 d-flex justify-content-center">
     <div class="row">
       <div class="col mt-4" *ngFor="let data of nonveg">
-        <div class="">
-          <div class="p-4 mt-4 img-thumbnail">
-            <img [src]="imagePaths[data.id]" (onload)="loadImage()" width="350px" height="250px"
-              *ngIf="imagePaths[data.id]">
-            <div class="color ms-5 mt-4">
-              <h5 class="color">Product Name: {{data.productName}}</h5>
-              <h5 class="color">Price: {{data.price}}</h5>
-            </div>
-            <div class="d-flex mt-3">
-              <button class="btn btn-small btn-outline-primary ms-5 mt-3" style="width: 100px;"
-                (click)="buy()">BUY</button>
-              <button class="btn mt-2 button ms-5 class" (click)="post(data)">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-             </div>
+        <div class="p-4 mt-4 img-thumbnail">
+          <img [src]="getImage(data.image)" width="350px" height="250px">
+          <div class="color ms-5 mt-4">
+            <h5 class="color">Product Name: {{ data.productName }}</h5>
+            <h5 class="color">Price: {{ data.price }}</h5>
+          </div>
+          <div class="d-flex mt-3">
+            <button class="btn btn-small btn-outline-primary ms-5 mt-3" style="width: 100px;" (click)="buy()">
+              BUY
+            </button>
+            <button class="btn mt-2 button ms-5 class" (click)="post(data)">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
           </div>
         </div>
       </div>

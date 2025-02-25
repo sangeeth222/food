@@ -47,7 +47,7 @@ export class BuyComponent implements OnInit {
   }
 
    
-  getImage(image: String): String {
+  getImages(image: String): String {
     
     return `http://localhost:8080/products/getProductImage/${image}`;
 }

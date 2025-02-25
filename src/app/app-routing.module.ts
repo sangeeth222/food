@@ -12,8 +12,7 @@ import { SignupComponent } from 'src/app/signup/signup.component';
 import { AboutusComponent } from 'src/app/aboutus/aboutus.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
 import { CareerComponent } from './career/career.component';
-import { LoginComponent } from './login/login.component';
-
+ 
 const routes: Routes = [
 
 
