@@ -1,0 +1,81 @@
+<div class="shadow-lg shadow  rounded sticky-top container-fluid">
+ 
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid mt-3">
+
+   <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid mt-3">
+       <img src="assets/c1.jpg" height="100px" class="rounded-circle">
+      <a class="navbar-brand colour ms-3" href="#">𝐹𝒪𝒪𝒟𝐼𝐸𝒮 𝒲𝒪𝑅𝐿𝒟</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-lg-flex justify-content-around" id="navbarNavDropdown">
+  
+
+         <ul class="navbar-nav">
+          <a class="nav-link style ms-2 mt-2 " href=" " (click)="home()">
+            Home</a>
+          <div class="dropdown ">
+            <a class="nav-link style ms-3 mt-2" href="javascript:void(0);">
+              <p>Category</p>
+            </a>
+            <div class="dropdown-content">
+              <div class="sub-dropdown box" *ngFor="let data of categoryitem">
+                <a>{{data.categoryName}}</a>
+                <div class="sub-dropdown-content">
+                  <a *ngFor="let item of data.subcategory"
+                    (click)="navigateToFood(item.id)">{{item.subCategoryName}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+         <div class="ms-5">
+          <div class="input-group" style="width: 400px;">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search">
+            <button type="button" class="btn btn-outline-primary">Search</button>
+          </div>
+        </div>
+ 
+          <div class="ms-5 shop">
+          <img src="assets/shopping-cart.png" width="40px" height="40px" (click)="cart()">CART
+          <!-- <i class="fa-solid fa-cart-shopping " style="color: #a51d2d;"></i>CART -->
+        </div>
+        <ul class="nav align-middle ms-5">
+          <li class="nav-item">
+            <!-- Login Button (only shown if userName is not set) -->
+            <a class="nav-link" *ngIf="!userName" (click)="login()">𝙇𝙊𝙂𝙄𝙉</a>
+            <!-- Username and Logout Button (only shown if userName is set) -->
+            <p class="out me-5 mt-2">
+              {{ userName }}
+              <button class="btn btn-outline-success ms-3" *ngIf="userName" (click)="showLogoutConfirmation()">
+                𝐋𝐎𝐆 𝐎𝐔𝐓
+              </button>
+            </p>
+          </li>
+        </ul>
+        <!-- Logout Confirmation Modal -->
+        <div *ngIf="displayLogoutConfirmation" class="modal">
+          <div class="modal-dialog ">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">Confirm Logout</h5>
+              </div>
+              <!-- Modal Body -->
+              <div class="modal-body">Are you sure you want to log out?</div>
+              <!-- Modal Footer with Cancel and Logout Buttons -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeLogoutConfirmation()">
+                  Cancel
+                </button>
+                <button type="button" class="btn btn-danger" (click)="confirmLogout()">
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+   

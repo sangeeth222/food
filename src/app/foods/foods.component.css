@@ -1,0 +1,43 @@
+
+.color {
+    font-family: cursive;
+    font-size: 25px; 
+    
+}
+
+.img-thumbnail{
+    transition: transform 0.2s;
+}
+.img-thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .button:hover {
+    background-color:white; 
+    border-color: #f7f7f9; 
+    color: #eb0a64;    
+  }
+  
+  .button-light {
+    color: rgb(220, 218, 229);
+    background-color: black;  
+    
+  }
+ 
+  
+.class{
+  border-radius: 3cap;
+  border: 3px;
+  font-size: 20px;
+ 
+  display: inline-block;
+  color: #121212;  
+
+}
+
+
+
+
+
+

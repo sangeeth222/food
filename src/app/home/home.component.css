@@ -1,0 +1,603 @@
+/* Common CSS for both PC and mobile */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+ 
+
+.text-center {
+    margin: 0 10px 20px;
+}
+
+.text-center img {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+}
+
+.size {
+    font-size: 25px;
+}
+
+.footer {
+    background-color: grey;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.hovers {
+    transition: transform 0.2s;
+}
+
+.hovers:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+ /* design / */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+#background-video {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;  
+}
+
+#content {
+  z-index: 1;
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#content img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  
+}
+
+#footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+/*  */
+.grainy-gradient-intro:before {
+  background: #c3ccea;
+  filter: url(#f);
+}
+.grainy-gradient-intro:before, .grainy-gradient-intro:after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  --grad: radial-gradient(at 50%, red, rgba(255, 0, 0, 0.3) 55%, transparent 80%);
+  --mask: var(--grad), var(--grad);
+  -webkit-mask: var(--mask);
+  -webkit-mask-composite: source-in;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  -webkit-mask-composite: source-in, xor;
+  mask-composite: intersect;
+  mix-blend-mode: unset;
+  content: "";
+}
+
+.grainy-gradient-intro:after {
+   background: linear-gradient(
+90deg, #760dfe 20%, #f51b26, #fd9900);
+}
+
+/* / extra / */
+html,
+body {
+  height: 100%;
+}
+@media (max-width: 767px) {
+  html,
+  body {
+    height: 2600px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 820px) {
+  html,
+  body {
+    height: 1750px;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1025px) {
+  html,
+  body{
+    height: 954px;
+  }
+}
+
+.phone {
+  border-radius: 40px;
+  min-height: 795px;
+  color: #0c0b0b;
+}
+
+.fas {
+  color: #e6cdce;
+}
+
+a {
+  color: #0b0909;
+}
+
+a,
+a:hover {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out
+}
+
+a:hover {
+  color: rgba(248, 228, 227, .65)
+}
+
+.dots {
+  cursor: pointer
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  background-color: #e6cdce;
+  border-radius: 50%
+}
+
+.dot-lg {
+  height: 8px;
+  width: 8px
+}
+
+.card {
+  background-color: hsla(1, 42%, 45%, .5);
+  border-radius: 10px
+}
+
+.card,
+.card:hover {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .09);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .09);
+  background-color: hsla(1, 42%, 45%, .4)
+}
+
+.mask-custom {
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, .2);
+  border: 2px solid rgba(255, 255, 255, .1);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+ }
+
+ /* / deliveryCart / */
+ .title-style{
+  
+  font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight:0px; 
+  font-size: 20px;
+  color: hsl(52, 0%, 98%);
+  }
+  .title-quote{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+  color: hsl(52, 0%, 98%);
+  }
+
+
+  .font{
+    font-size: 90px;
+    color: white;
+  }
+  .styles{
+  font-weight: 500  ;
+    font-size: 30px;
+  }
+
+
+
+
+
+
+
+
+
+  
+/* <menu> */
+
+ 
+
+  
+.btn-primary {
+    color: #fff;
+    background: #16a083;
+  }
+  
+  .btn-primary:hover {
+    background: #117964;
+    transition: background 0.3s ease-in-out;
+  }
+       
+  
+  .showcase-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.6rem;
+  }
+  
+  .main-title {
+    text-transform: uppercase;
+    margin-top: 1.5em;
+  }
+    
+  / .........../Food Menu/............ /
+  
+  .food-menu-heading {
+    text-align: center;
+    font-size: 3.4rem;
+    font-weight: 400;
+    color: #666;
+  }
+  
+  .food-menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0px 30px 0px;
+  }
+  
+  .food-menu-container img {
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .food-menu-item {
+    display: flex;
+    flex: 1 1 600px;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+  }
+  
+  .food-description {
+    margin: auto 1.5rem;
+  }
+  
+  .font-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #444;
+  }
+  
+  .food-description p {
+    font-size: 1.4rem;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .food-description .food-price {
+    color: #117964;
+    font-weight: 700;
+  }
+  
+  / ........./ Testimonial /.......... /
+  
+  #testimonials {
+    padding: 5rem 0;
+    background: rgba(243, 243, 243);
+  }
+  
+  .testimonial-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #555;
+  }
+  
+  .testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  
+  .testimonial-box .checked {
+    color: #ff9529;
+  }
+  
+  .testimonial-box .testimonial-text {
+    margin: 1rem 0;
+    color: #444;
+  }
+  
+  .testimonial-box {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .customer-photo img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: auto;
+  }
+   
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  
+.btn-primary {
+  color: #fff;
+  background: #16a083;
+}
+
+.btn-primary:hover {
+  background: #117964;
+  transition: background 0.3s ease-in-out;
+}
+     
+
+.showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.6rem;
+}
+
+.main-title {
+  text-transform: uppercase;
+  margin-top: 1.5em;
+}
+  
+/ .........../Food Menu/............ /
+
+.food-menu-heading {
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.food-menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 0px 30px 0px;
+}
+
+.food-menu-container img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.food-menu-item {
+  display: flex;
+  flex: 1 1 600px;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
+
+.food-description {
+  margin: auto 1.5rem;
+}
+
+.font-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.food-description p {
+  font-size: 1.4rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.food-description .food-price {
+  color: #117964;
+  font-weight: 700;
+}
+
+
+
+
+/* <homepage> */
+/ footer section start /
+*{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  body{
+    font-size:14px;
+    background: #fff;
+      max-width:1920px;
+      margin:0 auto;
+    overflow-x:hidden;
+    font-family: poppins;
+    
+  
+  }
+  #footer{
+    background: #f7f7f7;
+      padding: 3rem;
+     padding-top: 5rem; 
+    padding-top: 7rem;
+      padding-bottom: 80px;
+    background-image: url(https://arena.km.ua/wp-content/uploads/3538533.jpg);
+  }
+  #footer2{
+    background: #f7f7f7;
+      padding: 3rem;
+      margin-top: 0px;
+     padding-top: 5rem; 
+    padding-top: 7rem;
+      padding-bottom: 80px; 
+  }
+
+  .social-links h2{
+    padding-bottom: 15px;
+    font-size: 20px;
+      font-weight: 600;
+  }
+  .social-links img{
+    padding-bottom: 25px;
+  }
+  .social-icons{
+    /* display: flex;
+      gap: 3rem; */
+    display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    color: #777777;
+  }
+  .social-icons a{
+  
+    color: #777777;
+  }
+  .social-icons a:hover{
+    color: #000;
+  }
+  .social-icons a i{
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px;
+      padding: 0.4rem 1rem 0.4rem 1rem;
+      border-radius: 3px;
+      color: #82074a;
+    font-size: 16px;
+    margin-right: 12px;
+  }
+  li{
+    list-style: none;
+  }
+  .useful-link h2{
+    padding-bottom: 15px;
+    font-size: 20px;
+      font-weight: 600;
+  }
+  .useful-link img{
+    padding-bottom: 15px;
+  }
+  .use-links{
+    line-height: 32px;
+  }
+  .use-links li i{
+    font-size: 14px;
+      padding-right: 8px;
+      color: #898989;
+  }
+  .use-links li a{
+    color: #303030;
+      font-size: 15px;
+      font-weight: 500;
+    color: #777777;
+  }
+  .use-links li a:hover{
+    color: #000;
+  }
+  .address h2{
+    padding-bottom: 15px;
+    font-size: 20px;
+      font-weight: 600;
+  }
+  .address img{
+    padding-bottom: 15px;
+  }
+  .address-links li a{
+    color: #303030;
+      font-size: 15px;
+      font-weight: 500;
+    color: #777777;
+  
+  }
+  .address-links li i{
+    font-size: 16px;
+      padding-right: 8px;
+    color: #82074a;
+  
+  }
+  .address-links li i:nth-child(1){
+    padding-top: 9px;
+  }
+  .address-links .address1{
+    font-weight: 500;
+      font-size: 15px;
+    display: flex;
+  }
+  .address-links{
+        line-height: 32px;
+      color: #777777;
+  }
+  .copy-right-sec{
+    padding: 1.8rem;
+      background: #82074a;
+      color: #fff;
+      text-align: center;
+  }
+  .copy-right-sec a{
+    color: #fcd462;
+      font-weight: 500;
+  }
+  a{
+    text-decoration:none;
+  }

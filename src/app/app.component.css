@@ -1,0 +1,270 @@
+
+
+ 
+
+  
+.btn-primary {
+  color: #fff;
+  background: #16a083;
+}
+
+.btn-primary:hover {
+  background: #117964;
+  transition: background 0.3s ease-in-out;
+}
+     
+
+.showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.6rem;
+}
+
+.main-title {
+  text-transform: uppercase;
+  margin-top: 1.5em;
+}
+  
+/ .........../Food Menu/............ /
+
+.food-menu-heading {
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.food-menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 0px 30px 0px;
+}
+
+.food-menu-container img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.food-menu-item {
+  display: flex;
+  flex: 1 1 600px;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
+
+.food-description {
+  margin: auto 1.5rem;
+}
+
+.font-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.food-description p {
+  font-size: 1.4rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.food-description .food-price {
+  color: #117964;
+  font-weight: 700;
+}
+
+/ ........./ Testimonial /.......... /
+
+#testimonials {
+  padding: 5rem 0;
+  background: rgba(243, 243, 243);
+}
+
+.testimonial-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.testimonial-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+.testimonial-box .checked {
+  color: #ff9529;
+}
+
+.testimonial-box .testimonial-text {
+  margin: 1rem 0;
+  color: #444;
+}
+
+.testimonial-box {
+  text-align: center;
+  padding: 1rem;
+}
+
+.customer-photo img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin: auto;
+}
+ 
+
+
+/* <homepage> */
+/ footer section start /
+*{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  body{
+    font-size:14px;
+    background: #fff;
+      max-width:1920px;
+      margin:0 auto;
+    overflow-x:hidden;
+    font-family: poppins;
+    
+  
+  }
+  #footer{
+    background: #f7f7f7;
+      padding: 3rem;
+     padding-top: 5rem; 
+    padding-top: 7rem;
+      padding-bottom: 80px;
+    background-image: url(https://arena.km.ua/wp-content/uploads/3538533.jpg);
+  }
+  #footer2{
+    background: #f7f7f7;
+      padding: 3rem;
+      margin-top: 0px;
+     padding-top: 5rem; 
+    padding-top: 7rem;
+      padding-bottom: 80px; 
+  }
+
+  .social-links h2{
+    padding-bottom: 15px;
+    font-size: 20px;
+      font-weight: 600;
+  }
+  .social-links img{
+    padding-bottom: 25px;
+  }
+  .social-icons{
+    /* display: flex;
+      gap: 3rem; */
+    display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    color: #777777;
+  }
+  .social-icons a{
+  
+    color: #777777;
+  }
+  .social-icons a:hover{
+    color: #000;
+  }
+  .social-icons a i{
+    box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px;
+      padding: 0.4rem 1rem 0.4rem 1rem;
+      border-radius: 3px;
+      color: #82074a;
+    font-size: 16px;
+    margin-right: 12px;
+  }
+  li{
+    list-style: none;
+  }
+  .useful-link h2{
+    padding-bottom: 15px;
+    font-size: 20px;
+      font-weight: 600;
+  }
+  .useful-link img{
+    padding-bottom: 15px;
+  }
+  .use-links{
+    line-height: 32px;
+  }
+  .use-links li i{
+    font-size: 14px;
+      padding-right: 8px;
+      color: #898989;
+  }
+  .use-links li a{
+    color: #303030;
+      font-size: 15px;
+      font-weight: 500;
+    color: #777777;
+  }
+  .use-links li a:hover{
+    color: #000;
+  }
+  .address h2{
+    padding-bottom: 15px;
+    font-size: 20px;
+      font-weight: 600;
+  }
+  .address img{
+    padding-bottom: 15px;
+  }
+  .address-links li a{
+    color: #303030;
+      font-size: 15px;
+      font-weight: 500;
+    color: #777777;
+  
+  }
+  .address-links li i{
+    font-size: 16px;
+      padding-right: 8px;
+    color: #82074a;
+  
+  }
+  .address-links li i:nth-child(1){
+    padding-top: 9px;
+  }
+  .address-links .address1{
+    font-weight: 500;
+      font-size: 15px;
+    display: flex;
+  }
+  .address-links{
+        line-height: 32px;
+      color: #777777;
+  }
+  .copy-right-sec{
+    padding: 1.8rem;
+      background: #82074a;
+      color: #fff;
+      text-align: center;
+  }
+  .copy-right-sec a{
+    color: #fcd462;
+      font-weight: 500;
+  }
+  a{
+    text-decoration:none;
+  }
