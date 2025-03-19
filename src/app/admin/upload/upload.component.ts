@@ -52,7 +52,7 @@ export class UploadComponent implements OnInit {
         this.apiService.postProduct(formData).subscribe(
           (response: any) => {
             console.log('Form data uploaded successfully:', response);
-            this.router.navigate(['nav']);
+            this.router.navigate(['/admin']);
           },
           (error: any) => {
             console.error('Error uploading form data:', error);
@@ -93,11 +93,12 @@ export class UploadComponent implements OnInit {
     this.selectedCategory = this.categoryitem.find(category => category.id === categoryId);
     if (this.selectedCategory) {
       this.subcategories = this.selectedCategory.subcategory;
+      this.router.navigate(['/admin']);
     } else {
       this.subcategories = [];
     }
   }
   goBack() {
-    this.router.navigate(['/nav']); // ✅ Navigate back to the list page
+    this.router.navigate(['/admin']);  
   }
 }

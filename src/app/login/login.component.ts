@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         // Check if res exists and has the role property
         if (res && res.role) {
           if (res.role === "ROLE_ADMIN" ) {
-            this.route.navigate(['nav']);
+            this.route.navigate(['/admin/list']);
             this.snackbar.showSuccessMessage('Admin Login successfully ' + res.userName ); 
           } else if (res.role === "ROLE_USER" ) {
             this.route.navigate(['']);

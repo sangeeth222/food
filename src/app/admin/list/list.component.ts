@@ -80,7 +80,7 @@ filterItems(): void {
 
   view(product: any) {
     if (product && product.id) {
-      this.route.navigate(['/nav/view', product.id]);
+      this.route.navigate(['admin/view', product.id]);
       console.log('Navigating to view:', product.id);
       
     } else {
@@ -90,7 +90,7 @@ filterItems(): void {
 
   edit(product: any) {
     if (product && product.id) {
-      this.route.navigate(['/nav/update', product.id]); // Corrected navigation
+      this.route.navigate(['admin/update', product.id]); // Corrected navigation
       console.log('Navigating to update:', product.id);
     } else {
       this.snackBar.showErrorMessage('Edit not available');
@@ -117,14 +117,21 @@ filterItems(): void {
   
   
 categorys() {
-  this.route.navigate(['nav','categorys']);
+  this.route.navigate(['categorys']);
  }
 
  upload() {
-  this.route.navigate(['nav','upload'])
+  this.route.navigate(['admin/upload'])
   }
   update() {
-    this.route.navigate(['nav','update'])
+    this.route.navigate(['admin/update'])
+   }
+   userdetails(){
+    console.log(' working click');
+    
+    this.route.navigate(['admin/userdetails']);
+    console.log("sucess route");
+    
    }
  
 

@@ -5,7 +5,6 @@
             <a class="navbar-brand colour ms-3">𝐹𝒪𝒪𝒟𝐼𝐸𝒮 𝒲𝒪𝑅𝐿𝒟</a>
         </a>
         <ul class="nav align-middle ms-5">
-
             <li class="nav-item ">
                 <a class="nav-link style   " (click)="login()" *ngIf="!userName">𝙇𝙊𝙂𝙄𝙉</a>
                 <p class="out me-5 mt-2 ">{{userName}}
@@ -13,27 +12,31 @@
                         𝐎𝐔𝐓</button>
                 </p>
             </li>
-
         </ul>
     </div>
 
-    
-
-    <div class="row btn-outline-success">
-      
-    </div>
+   
 </nav>
+ <div class="row btn-outline-success">
+  <button (click)="userdetails()">UserDetails</button>
+    </div>
+<div>
+  <div class="row">
+    <div class="col"> 
+         <h2>Product List</h2>
+    </div>
+  <div class="col"> 
   <div class="outer-container">
-    <div class="button-container">
-        <button class="btn btn-primary btn-rounded list-button-container"(click)="upload()">
+    <div class="button-container d-flex justify-content-end">
+        <button class="btn btn-primary btn-rounded me-2  list-button-container"(click)="upload()">
             <span class="list-text-alaign-center">Add Product</span>
         </button>
-        <button class="btn btn-danger btn-rounded list-button-container"(click)="categorys()">
+        <button class="btn btn-danger btn-rounded   list-button-container"(click)="categorys()">
             <span class="list-text-alaign-center">Category</span>
         </button>
-        <button class="btn btn-dark btn-rounded list-button-container" (click)="update()" >
+        <!-- <button class="btn btn-dark btn-rounded list-button-container" (click)="update()" >
             <span class="list-text-alaign-center">Edit</span>
-        </button>
+        </button> -->
         <!-- <button class="btn btn-success btn-rounded list-button-container"(click)="view()" [disabled]="!viewEnable">
             <span class="list-text-alaign-center">View</span>
         </button> -->
@@ -41,8 +44,11 @@
             <span>Clear</span>
         </button> -->
     </div>
+    </div>
+  </div>
 </div>
-<h2>Product List</h2>
+</div>
+
 
 
 <!-- Angular Material Table -->
@@ -114,7 +120,7 @@
 </table>
 
 <!-- MatPaginator for Pagination -->
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 20,50,100]" showFirstLastButtons></mat-paginator>
 
 <!-- Message if No Products Found -->
 <p *ngIf="dataSource.data.length === 0">No products available.</p>
