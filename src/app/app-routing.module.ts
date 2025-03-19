@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: "about", component: AboutusComponent },
   { path: "contact", component: ContactComponent },
   { path: "career", component: CareerComponent },
-  { path: "nav", loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: "admin", loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
 
 

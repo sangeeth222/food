@@ -12,9 +12,9 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  baseurl= "http://localhost:8080";
+ // baseurl= "http://localhost:8080";
 
-  //baseurl="https://foodappapi-b7ig.onrender.com";
+  baseurl="https://foodappapi-b7ig.onrender.com";
  // "https://foodapi-mq1q.onrender.com";
   
   post(path:any,data:any):Observable<any>{
@@ -63,6 +63,16 @@ return this.http.get(this.baseurl+'/products/getById/'+id);
    }
   UpdateProductId(id: number, updatedData: any): Observable<any> {
     return this.http.put(this.baseurl + '/products/update/' + id, updatedData);
+  }
+  getUserDetails():Observable<any>{
+    return this.http.get(this.baseurl+'/user/getall');
+  }
+  getUserById(id: number):Observable<any>{
+    return this.http.get(this.baseurl+'/user/getById/'+id);
+  }
+  
+  updateUserId(id: number, userData: any):Observable<any>{
+    return this.http.get(this.baseurl+'/user/update/'+id,userData);
   }
   
   }
