@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { NavComponent } from './nav/nav.component';
-import { UploadComponent } from './upload/upload.component';
+ import { UploadComponent } from './upload/upload.component';
 import { UpdateComponent } from './update/update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategorysComponent } from './categorys/categorys.component';
@@ -13,16 +12,19 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ViewComponent } from './view/view.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserDetailsEditComponent } from './user-details-edit/user-details-edit.component';
 
 
 @NgModule({
   declarations: [
-    NavComponent,
-    UploadComponent,
+     UploadComponent,
     UpdateComponent,
     CategorysComponent,
     ListComponent,
-    ViewComponent
+    ViewComponent,
+    UserDetailsComponent,
+    UserDetailsEditComponent
   ],
   imports: [
     CommonModule,

@@ -17,7 +17,6 @@ export class UploadComponent implements OnInit {
   formgroup: FormGroup | undefined;
   formType: string = 'products';  
   selectedImageSrc: string | ArrayBuffer | null = null;  
-   
 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router:Router) { }
 
@@ -41,29 +40,37 @@ export class UploadComponent implements OnInit {
   register() {
     if (this.formgroup && this.formgroup.valid) {
       const formData = new FormData();
-      formData.append('productName', this.formgroup.get('ProductName')?.value);
-      formData.append('categoryIdStr', this.formgroup.get('CategoryId')?.value);
-      formData.append('subcategoryIdStr', this.formgroup.get('SubCategoryId')?.value);
-      formData.append('price', this.formgroup.get('Price')?.value);
-      formData.append('quantity', this.formgroup.get('Quantity')?.value);
-      formData.append('image', this.formgroup.get('image')?.value);
+  
+      formData.append('productName', this.formgroup.get('ProductName')?.value || '');
+      formData.append('categoryIdStr', this.formgroup.get('CategoryId')?.value || '');
+      formData.append('subcategoryIdStr', this.formgroup.get('SubCategoryId')?.value || '');
+      formData.append('price', this.formgroup.get('Price')?.value || '');
+      formData.append('quantity', this.formgroup.get('Quantity')?.value || '');
+  
+      const imageFile = this.formgroup.get('image')?.value;
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
   
       if (this.formType === 'products') {
         this.apiService.postProduct(formData).subscribe(
           (response: any) => {
-            console.log('Form data uploaded successfully:', response);
-            this.router.navigate(['nav']);
+            console.log('Product uploaded successfully:', response);
+            this.router.navigate(['/admin']); // Navigate after success
           },
           (error: any) => {
-            console.error('Error uploading form data:', error);
+            console.error('Error uploading product:', error);
             if (error.error) {
               console.error('Error Response:', error.error);
             }
           }
         );
       }
+    } else {
+      console.error('Form is invalid');
     }
   }
+  
   
   
   getCategories() {
@@ -98,6 +105,6 @@ export class UploadComponent implements OnInit {
     }
   }
   goBack() {
-    this.router.navigate(['/nav']); // ✅ Navigate back to the list page
+    this.router.navigate(['/admin']);  
   }
 }

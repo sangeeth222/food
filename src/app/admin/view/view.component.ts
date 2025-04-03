@@ -41,6 +41,6 @@ export class ViewComponent implements OnInit {
   }
   
   goBack() {
-    this.router.navigate(['/nav']);  
+    this.router.navigate(['/admin']);  
   }
 }

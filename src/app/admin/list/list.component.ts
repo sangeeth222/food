@@ -22,6 +22,8 @@ editEnable: any;
 viewEnable: any;
   toastrMsg: any;
   userName: any;
+displayDeleteConfirmation: boolean = false;
+productIdToDelete: number | null = null; // Store product ID for deletion
 
 
   constructor(private route:Router,private apiService: ApiService,private snackBar:SnackbarService){
@@ -80,7 +82,7 @@ filterItems(): void {
 
   view(product: any) {
     if (product && product.id) {
-      this.route.navigate(['/nav/view', product.id]);
+      this.route.navigate(['admin/view', product.id]);
       console.log('Navigating to view:', product.id);
       
     } else {
@@ -90,42 +92,64 @@ filterItems(): void {
 
   edit(product: any) {
     if (product && product.id) {
-      this.route.navigate(['/nav/update', product.id]); // Corrected navigation
+      this.route.navigate(['admin/update', product.id]); // Corrected navigation
       console.log('Navigating to update:', product.id);
     } else {
       this.snackBar.showErrorMessage('Edit not available');
     }
   }
-  
   delete(id: number) {
-    console.log(id, 'id number');
-  
+    console.log("Deleting product with ID:", id);
+
     this.apiService.DeleteProduct(id).subscribe(
       (response: any) => {
-        console.log('Product deleted successfully:', response);
-        this.snackBar.showSuccessMessage('Successfully deleted', 20000); // Now works fine
-        window.location.reload();
+        console.log("Product deleted successfully:", response);
+        this.snackBar.showSuccessMessage("Successfully deleted", 2000);
+        this.getAllProducts(); // Refresh product list
       },
       (error) => {
-        console.error('Error deleting product:', error);
-        this.snackBar.showErrorMessage('Failed to delete product', 10000);
+        console.error("Error deleting product:", error);
+        this.snackBar.showErrorMessage("Failed to delete product", 2000);
       }
     );
   }
   
-  
-  
-  
 categorys() {
-  this.route.navigate(['nav','categorys']);
+  this.route.navigate(['admin/categorys']);
  }
 
  upload() {
-  this.route.navigate(['nav','upload'])
+  this.route.navigate(['admin/upload'])
   }
   update() {
-    this.route.navigate(['nav','update'])
+    this.route.navigate(['admin/update'])
+   }
+   userdetails(){
+    console.log(' working click');
+    
+    this.route.navigate(['admin/userdetails']);
+    console.log("sucess route");
+    
    }
  
+  // Function to Show delete confirmation
+   showDeleteConfirmation(id: number) {
+    console.log("Delete confirmation for ID:", id);
+    this.productIdToDelete = id;
+    this.displayDeleteConfirmation = true;
+  }
+  // Function to close delete confirmation
+  closeDeleteConfirmation() {
+    this.displayDeleteConfirmation = false;
+    this.productIdToDelete = null;
+  }
+  // Function to confirm delete
+  confirmDelete() {
+    if (this.productIdToDelete !== null) {
+      this.delete(this.productIdToDelete);
+    }
+    this.closeDeleteConfirmation();
+  }
 
 }
+

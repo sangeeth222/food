@@ -64,7 +64,7 @@ export class UpdateComponent implements OnInit {
     this.apiService.UpdateProductId(productId,updatedProduct).subscribe((response:any)=>{
       console.log('Product updated successfully:', response);
         this.snackbar.showSuccessMessage('Product updated successfully');
-        this.router.navigate(['/nav']);  
+        this.router.navigate(['/admin']);  
       },
       (error) => {
         console.error('Error updating product:', error);
@@ -141,6 +141,6 @@ export class UpdateComponent implements OnInit {
 
 
   goBack() {
-    this.router.navigate(['/nav']);  
+    this.router.navigate(['/admin']);  
   }
 }

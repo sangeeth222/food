@@ -47,6 +47,8 @@ export class CategorysComponent implements OnInit {
     if (this.formgroup.valid) {
       const formData = this.formgroup.value;
       this.post(formData);
+      console.log(this.post);
+      this.router.navigate(['/admin']);
     } else {
       // Handle form validation errors if needed
     }
@@ -56,6 +58,7 @@ export class CategorysComponent implements OnInit {
     console.log(data);
     this.http.postCategory("category/save", data).subscribe((res: any) => {
       console.log(res);
+      this.router.navigate(['/admin']);
     }, (error: HttpErrorResponse) => {
       if (error.status === 404) {
         console.error("Error 404: Resource not found. Please check your server configuration.");
@@ -66,6 +69,6 @@ export class CategorysComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/nav']); // ✅ Navigate back to the list page
+    this.router.navigate(['/admin']); // ✅ Navigate back to the list page
   }
 }
