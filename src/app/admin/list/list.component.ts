@@ -22,6 +22,8 @@ editEnable: any;
 viewEnable: any;
   toastrMsg: any;
   userName: any;
+displayDeleteConfirmation: boolean = false;
+productIdToDelete: number | null = null; // Store product ID for deletion
 
 
   constructor(private route:Router,private apiService: ApiService,private snackBar:SnackbarService){
@@ -96,28 +98,24 @@ filterItems(): void {
       this.snackBar.showErrorMessage('Edit not available');
     }
   }
-  
   delete(id: number) {
-    console.log(id, 'id number');
-  
+    console.log("Deleting product with ID:", id);
+
     this.apiService.DeleteProduct(id).subscribe(
       (response: any) => {
-        console.log('Product deleted successfully:', response);
-        this.snackBar.showSuccessMessage('Successfully deleted', 20000); // Now works fine
-        window.location.reload();
+        console.log("Product deleted successfully:", response);
+        this.snackBar.showSuccessMessage("Successfully deleted", 2000);
+        this.getAllProducts(); // Refresh product list
       },
       (error) => {
-        console.error('Error deleting product:', error);
-        this.snackBar.showErrorMessage('Failed to delete product', 10000);
+        console.error("Error deleting product:", error);
+        this.snackBar.showErrorMessage("Failed to delete product", 2000);
       }
     );
   }
   
-  
-  
-  
 categorys() {
-  this.route.navigate(['categorys']);
+  this.route.navigate(['admin/categorys']);
  }
 
  upload() {
@@ -134,5 +132,24 @@ categorys() {
     
    }
  
+  // Function to Show delete confirmation
+   showDeleteConfirmation(id: number) {
+    console.log("Delete confirmation for ID:", id);
+    this.productIdToDelete = id;
+    this.displayDeleteConfirmation = true;
+  }
+  // Function to close delete confirmation
+  closeDeleteConfirmation() {
+    this.displayDeleteConfirmation = false;
+    this.productIdToDelete = null;
+  }
+  // Function to confirm delete
+  confirmDelete() {
+    if (this.productIdToDelete !== null) {
+      this.delete(this.productIdToDelete);
+    }
+    this.closeDeleteConfirmation();
+  }
 
 }
+

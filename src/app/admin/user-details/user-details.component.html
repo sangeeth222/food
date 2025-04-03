@@ -11,6 +11,12 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
       <td mat-cell *matCellDef="let user">{{ user.userName }}</td>
     </ng-container>
+
+      <!-- Password Column -->
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Password</th>
+        <td mat-cell *matCellDef="let user">{{ user.password }}</td>
+      </ng-container>
   
     <!-- Mobile Number Column -->
     <ng-container matColumnDef="mobileno">
@@ -45,6 +51,13 @@
         <button class="btn btn-danger" (click)="edit(user)">Edit</button>
       </td>
     </ng-container>
+        <!-- Delete Button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let user">
+        <button class="btn btn-danger" (click)="showDeleteConfirmation(user.id)">Delete</button>
+      </td>
+    </ng-container>
   
     <!-- Table Header & Rows -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -61,4 +74,29 @@
     <div class="col-md-12 text-center">
         <button class="btn btn-primary" (click)="goBack()">Go Back</button>
     </div>
+</div>
+
+
+<!-- Delete Confirmation Modal -->
+<div *ngIf="displayDeleteConfirmation" class="modal fade show d-block" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="btn-close" (click)="closeDeleteConfirmation()"></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">Are you sure you want to delete this user?</div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeDeleteConfirmation()">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
