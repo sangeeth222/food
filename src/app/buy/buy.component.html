@@ -1,17 +1,17 @@
 <div class="container">
-    <div class="title">
-        <h2>Product Order Form</h2>
-    </div>
+  <div class="title">
+    <h2>Product Order Form</h2>
+  </div>
   <div class="d-flex">
     <form (submit)="post()">
-     
+
       <label>
-        <span class="lname" > Name <span class="required">*</span></span>
-        <input type="text" name="lname" [(ngModel)]="name" >
+        <span class="lname"> Name <span class="required">*</span></span>
+        <input type="text" name="lname" [(ngModel)]="name">
       </label>
-      
+
       <label>
-        <span>Country <span class="required" >*</span></span>
+        <span>Country <span class="required">*</span></span>
         <select name="selection" [(ngModel)]="country">
           <option value="select">Select a country...</option>
           <option value="AFG">Afghanistan</option>
@@ -269,47 +269,49 @@
         <span> Address <span class="required">*</span></span>
         <input type="text" name="houseadd" placeholder="House number and street name" required [(ngModel)]="address">
       </label>
-      
+
       <label>
         <span> City <span class="required">*</span></span>
-        <input type="text" name="city" [(ngModel)]="city"> 
+        <input type="text" name="city" [(ngModel)]="city">
       </label>
-      
+
       <label>
         <span>pincode <span class="required">*</span></span>
-        <input type="text" name="pincode" [(ngModel)]="pincode"> 
+        <input type="text" name="pincode" [(ngModel)]="pincode">
       </label>
       <label>
         <span>MobileNumber <span class="required">*</span></span>
-        <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber"> 
+        <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber">
       </label>
       <label>
         <span>Email Address <span class="required">*</span></span>
-        <input type="email" name="city" [(ngModel)]="email"> 
+        <input type="email" name="city" [(ngModel)]="email">
       </label>
       <div class=" d-flex justify-content-center">
         <h3 class="ab">Total Price :&#8377; {{getGrandTotal()}}</h3>
-            <button type="submit" class="btn btn-small btn-outline-success b ms-5 ">Place Order</button>
-    </div>
-    
+        <button type="submit" class="btn btn-small btn-outline-success b ms-5 ">Place Order</button>
+      </div>
+
     </form>
     <div class="Yorder">
-     
+
       <div>
         <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
       </div>
       <p>
-          Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order
+        will not be shipped until the funds have cleared in our account.
       </p>
       <div>
         <input type="radio" name="dbt" value="cd"> Cash on Delivery
       </div>
       <div>
         <input type="radio" name="dbt" value="cd"> Paypal <span>
-        <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+          <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt=""
+            width="50">
         </span>
       </div>
-      
+
     </div><!-- Yorder -->
-   </div>
   </div>
+</div>

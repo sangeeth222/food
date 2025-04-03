@@ -40,6 +40,7 @@ export class UserDetailsEditComponent implements OnInit {
     this.userForm = this.fb.group({
       id: [{ value: '', disabled: true }, Validators.required],
       userName: ['', Validators.required],
+      password: ['', Validators.required],
       mobileNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       emailId: ['', [Validators.required, Validators.email]],
       role: ['', Validators.required]
@@ -60,8 +61,10 @@ export class UserDetailsEditComponent implements OnInit {
 
   updateUser() {
     if (this.userForm.valid) {
-      const updatedUser = this.userForm.getRawValue(); // Get form values
-      this.apiService.updateUserId(this.userId, updatedUser).subscribe(
+      const requestPayload = this.userForm.getRawValue(); // Get all form values including disabled fields
+      requestPayload.id = this.userId; // Ensure ID is correctly assigned
+
+      this.apiService.updateUserId(this.userId, requestPayload).subscribe(
         (res) => {
           this.snackBar.showSuccessMessage('User updated successfully');
           this.router.navigate(['/admin/userdetails']); // Redirect after update
@@ -71,8 +74,11 @@ export class UserDetailsEditComponent implements OnInit {
           this.snackBar.showErrorMessage('Failed to update user');
         }
       );
+    } else {
+      this.snackBar.showErrorMessage('Please fill all required fields correctly');
     }
   }
+  
 
   goBack() {
     this.router.navigate(['/admin/userdetails']); // Navigate back

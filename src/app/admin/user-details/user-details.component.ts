@@ -14,8 +14,10 @@ import { SnackbarService } from 'src/app/snackbar.service';
 export class UserDetailsComponent implements OnInit  {
   
   dataSource = new MatTableDataSource<any>();  
-  displayedColumns: string[] = ["id", "userName", "mobileno", "gmail", "role", "edit"];
-
+  displayedColumns: string[] = ["id", "userName","password", "mobileno", "gmail", "role", "edit",'delete'];
+  displayDeleteConfirmation: boolean = false;
+  userIdToDelete: number | null = null; // Store product ID for deletion
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -55,6 +57,38 @@ export class UserDetailsComponent implements OnInit  {
       this.snackBar.showErrorMessage('Edit not available');
     }
   }
+delete(id:number){
+   this.apiService.deleteUserId(id).subscribe((res:any)=>{
+    console.log("user deleted successfully:", res);
+    this.snackBar.showSuccessMessage("Successfully deleted", 2000);
+this.getAllUserDetails();
+   },
+  (error)=>{
+    console.error("Error deleting user:", error);
+    this.snackBar.showErrorMessage("Failed to delete user", 2000);
+  });
+ }
+
+
+  // Function to Show delete confirmation
+  showDeleteConfirmation(id: number) {
+    console.log("Delete confirmation for ID:", id);
+    this.userIdToDelete = id;
+    this.displayDeleteConfirmation = true;
+  }
+  // Function to close delete confirmation
+  closeDeleteConfirmation() {
+    this.displayDeleteConfirmation = false;
+    this.userIdToDelete = null;
+  }
+  // Function to confirm delete
+  confirmDelete() {
+    if (this.userIdToDelete !== null) {
+      this.delete(this.userIdToDelete);
+    }
+    this.closeDeleteConfirmation();
+  }
+ 
 
   goBack() {
     this.route.navigate(['/admin']);  

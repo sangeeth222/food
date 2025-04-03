@@ -12,10 +12,10 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
- // baseurl= "http://localhost:8080";
+     baseurl= "http://localhost:10000";
 
-  baseurl="https://foodappapi-b7ig.onrender.com";
- // "https://foodapi-mq1q.onrender.com";
+  //  baseurl="https://foodappapi-b7ig.onrender.com";
+   //  baseurl= 'https://foodapi-97dt.onrender.com';
   
   post(path:any,data:any):Observable<any>{
     return this.http.post(this.baseurl+path,data)
@@ -37,7 +37,7 @@ export class ApiService {
   }
 
   postProduct(formData: FormData): Observable<any> {
-    return this.http.post(this.baseurl + '/products/', formData);
+    return this.http.post(this.baseurl + '/products', formData);
   }
   // postCategory(path: string, data: any): Observable<any> {
   //   return this.http.post<any>(this.baseurl + '/category/save', data);
@@ -72,7 +72,10 @@ return this.http.get(this.baseurl+'/products/getById/'+id);
   }
   
   updateUserId(id: number, userData: any):Observable<any>{
-    return this.http.get(this.baseurl+'/user/update/'+id,userData);
+    return this.http.put(this.baseurl+'/user/update/'+id,userData);
+  }
+  deleteUserId(id:number):Observable<any>{
+    return this.http.delete(this.baseurl+'/user/delete/'+id);
   }
   
   }
