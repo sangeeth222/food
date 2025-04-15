@@ -11,11 +11,11 @@ export class ApiService {
 
 
   constructor(private http:HttpClient) { }
-
-     baseurl= "http://localhost:8080";
- //    https://console.firebase.google.com/project/foodapp-7df49/storage/foodapp-7df49.appspot.com/files
-  //  baseurl="https://foodappapi-b7ig.onrender.com";
-   //  baseurl= 'https://foodapi-97dt.onrender.com';
+ // baseurl= "http://localhost:10000";
+   //  baseurl= "http://localhost:8080";
+   //  baseurl="https://foodappapi-b7ig.onrender.com";
+    
+    baseurl= 'https://foodapi-97dt.onrender.com';
   
   post(path:any,data:any):Observable<any>{
     return this.http.post(this.baseurl+path,data)
