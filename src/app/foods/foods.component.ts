@@ -14,6 +14,8 @@ export class FoodsComponent implements OnInit {
   category: String;
   veg: any;
   userId: any;
+  groupedNonveg: any[][] = [];
+
 
   constructor(private api: ApiService, private route: Router, public dialog: MatDialog,private snackbar: SnackbarService,private routes: ActivatedRoute) {
     this.category = this.routes.snapshot.queryParams['id'];
@@ -27,7 +29,10 @@ export class FoodsComponent implements OnInit {
       this.category = params['id'];
       console.log(this.category, "<========");
       this.getProductsByCategory(); // Fetch products when category changes
+      this.groupedNonveg = this.groupItems(this.nonveg, 3);
+
     });
+
 
     // Get user ID from local storage
     let data = localStorage.getItem("res");
@@ -96,6 +101,13 @@ buy(){
 }
   loadImage() {
     console.log("Image Loaded Success");
+  }
+  groupItems(array: any[], size: number): any[][] {
+    const grouped = [];
+    for (let i = 0; i < array.length; i += size) {
+      grouped.push(array.slice(i, i + size));
+    }
+    return grouped;
   }
 }
  

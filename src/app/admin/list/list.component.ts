@@ -114,8 +114,8 @@ filterItems(): void {
     );
   }
   
-categorys() {
-  this.route.navigate(['admin/categorys']);
+categoryList() {
+  this.route.navigate(['admin/categoryList']);
  }
 
  upload() {

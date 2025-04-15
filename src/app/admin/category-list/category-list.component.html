@@ -1,0 +1,79 @@
+<button class="btn btn-danger btn-rounded list-button-container" (click)="categorys()">
+    <span class="list-text-alaign-center">Category</span>
+  </button>
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let category">{{ category.id }}</td>
+    </ng-container>
+  
+    <!-- Category Name Column -->
+    <ng-container matColumnDef="categoryName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+      <td mat-cell *matCellDef="let category">{{ category.categoryName }}</td>
+    </ng-container>
+  
+    <!-- Subcategory Column -->
+    <ng-container matColumnDef="subcategory">
+      <th mat-header-cell *matHeaderCellDef>Subcategories</th>
+      <td mat-cell *matCellDef="let category">
+        <ul>
+          <li *ngFor="let sub of category.subcategory">{{ sub.subCategoryName }}</li>
+        </ul>
+      </td>
+    </ng-container>
+  
+    <!-- Edit Button Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let category">
+        <button class="btn btn-danger" (click)="edit(category)">Edit</button>
+      </td>
+    </ng-container>
+  
+    <!-- Delete Button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let category">
+        <button class="btn btn-danger" (click)="showDeleteConfirmation(category.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <!-- Table Header & Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  </table>
+  
+  <!-- MatPaginator for Pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+  
+  <!-- Message if No Categories Found -->
+  <p *ngIf="dataSource.data.length === 0">No categories available.</p>
+  
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+  
+  <!-- Delete Confirmation Modal -->
+  <div *ngIf="displayDeleteConfirmation" class="modal fade show d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" (click)="closeDeleteConfirmation()"></button>
+        </div>
+        <div class="modal-body">Are you sure you want to delete this category?</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeDeleteConfirmation()">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
