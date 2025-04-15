@@ -12,8 +12,8 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-     baseurl= "http://localhost:10000";
-
+     baseurl= "http://localhost:8080";
+ //    https://console.firebase.google.com/project/foodapp-7df49/storage/foodapp-7df49.appspot.com/files
   //  baseurl="https://foodappapi-b7ig.onrender.com";
    //  baseurl= 'https://foodapi-97dt.onrender.com';
   
@@ -44,12 +44,15 @@ export class ApiService {
   // }
      /** ✅ Save a new category */
   postCategory(path: string, data: any): Observable<any> {
-    return this.http.post(`${this.baseurl}/${path}`, data);
+    return this.http.post(this.baseurl+path,data);
   }
 
   /** ✅ Fetch all categories */
-  getCategories(path: string): Observable<any> {
-    return this.http.get(`${this.baseurl}/${path}`);
+  getCategories(): Observable<any> {
+    return this.http.get(this.baseurl+'/category/getall');
+  }
+  DeleteCategory(id:number):Observable<any> {
+    return this.http.delete(this.baseurl+'/category/delete/'+id);
   }
   getAllProduct(): Observable<any> {
 return this.http.get(this.baseurl+'/products/getall');

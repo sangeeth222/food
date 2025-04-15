@@ -19,5 +19,5 @@ contact() {
   this.route.navigate(['contact'])
   }
   
-  title = 'vinusha';
+  title = 'VLCS';
 }

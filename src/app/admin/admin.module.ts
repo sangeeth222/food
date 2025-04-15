@@ -14,6 +14,7 @@ import { ViewComponent } from './view/view.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserDetailsEditComponent } from './user-details-edit/user-details-edit.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UserDetailsEditComponent } from './user-details-edit/user-details-edit.
     ListComponent,
     ViewComponent,
     UserDetailsComponent,
-    UserDetailsEditComponent
+    UserDetailsEditComponent,
+    CategoryListComponent
   ],
   imports: [
     CommonModule,
