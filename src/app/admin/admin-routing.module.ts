@@ -8,18 +8,19 @@ import { ListComponent } from './list/list.component';
 import { ViewComponent } from './view/view.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserDetailsEditComponent } from './user-details-edit/user-details-edit.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 const routes: Routes = [
     {path:"",component:ListComponent},
   {path:"list",component:ListComponent},
   {path:"view/:id",component:ViewComponent},
-    {path:"login",component:HeaderComponent},
+  {path:"login",component:HeaderComponent},
   {path:"upload",component:UploadComponent},
   {path:"update/:id",component:UpdateComponent},
   {path:"categorys",component:CategorysComponent},
   {path:'userdetails',component:UserDetailsComponent},
-  {path: 'userdetailsEdit/:id',component:UserDetailsEditComponent}
-
+  {path: 'userdetailsEdit/:id',component:UserDetailsEditComponent},
+  {path: 'categoryList',component:CategoryListComponent}
    
 
 ];
