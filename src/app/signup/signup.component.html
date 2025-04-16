@@ -44,8 +44,8 @@
             <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password"
               placeholder="Enter your password">
             <span class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
-              <svg id="i-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="none"
-                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+              <svg id="i-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                 <circle cx="17" cy="15" r="1" />
                 <circle cx="16" cy="16" r="6" />
                 <path d="M2 16 C2 16 7 6 16 6 25 6 30 16 30 16 30 16 25 26 16 26 7 26 2 16 2 16 Z" />
@@ -66,14 +66,14 @@
             <button class="btn btn-small btn-success mt-3 w-50" type="submit"
               [disabled]="signupForm.invalid">SIGNUP</button>
           </div>
-          <div class="modal" id="staticBackdrop" [ngStyle]="{'display':display}" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal" id="staticBackdrop" [ngStyle]="{'display':display}" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-black">
                   <h1 class="modal-title fs-5" id="staticBackdropLabel">SIGNUP</h1>
-                  <button type="button" class="btn-close text-black" data-bs-dismiss="modal" aria-label="Close"
-                    (click)="onclose()"></button>
+                  <button type="button" class="btn-close text-black" data-bs-dismiss="modal"
+                    aria-label="Close" (click)="onclose()"></button>
                 </div>
                 <div class="modal-body">
                   {{moduledata}}

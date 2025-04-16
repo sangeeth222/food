@@ -1,9 +1,4 @@
- 
-<div>
-    <button class="custom-btn btn-7" (click)="back()">Back</button>
- </div>
- 
-<section id="contact">
+<!-- <section id="contact" >
     <div class="contact-container container">
         <div class="contact-img">
            
@@ -14,9 +9,41 @@
             <input type="text" placeholder="Your Name" />
             <input type="email" placeholder="E-Mail" />
             <textarea cols="30" rows="6" placeholder="Type Your Message"></textarea>
-            <a href="#" class="btn btn-primary">Submit</a>
+            <a href="#" class="btn btn-success">Submit</a>
         </div>
     </div>
- </section>
-<button class="custom-btn btn-7"  >Back</button>
-  
+</section> -->
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Contact Image -->
+            <div class="col-md-6">
+                <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="Restaurant" class="img-fluid rounded shadow">
+            </div>
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <h2 class="text-center mb-4">Contact Us</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-Mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Type your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="button-group" class="col-lg-12 mb-2 d-flex justify-content-end">
+    <button class="search-button btn btn-primary" [routerLink]="['/']">Back</button>
+</div>
