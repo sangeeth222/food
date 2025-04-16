@@ -1,162 +1,124 @@
- 
-
 <app-header></app-header>
-
-<div class="container-fluid">
-    <div class="row d-flex mt-5 flex-wrap">
-
-        <div class="text-center color hovers col">
-            <img src="assets/dessert.jpg" alt="Dessert" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑫𝑬𝑺𝑺𝑬𝑹𝑻</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/spicy.jpg" alt="Spicy" class="rounded-circle mt-5" >
-            <h2 class="mt-4 size">𝑯𝑶𝑻&𝑺𝑷𝑰𝑪𝒀</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/food images.jpg" alt="Food" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size" (click)="fastfood()">𝑭𝑨𝑺𝑻 𝑭𝑶𝑶𝑫</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/meals.webp" alt="Meals" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑽𝑬𝑮𝑮𝑰𝑬𝑺</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/nonveg.webp" alt="Non-Veg" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑵𝑶𝑵-𝑽𝑬𝑮</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/ice cream.png" alt="Ice Cream" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑰𝑪𝑬-𝑪𝑹𝑬𝑨𝑴</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/shakes.png" alt="Shakes" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑺𝑯𝑨𝑲𝑬𝑺</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/drinks.png" alt="Drinks" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑺𝑶𝑭𝑻 𝑫𝑹𝑰𝑵𝑲𝑺</h2>
-        </div>
-
-        <div class="text-center color hovers col">
-            <img src="assets/coffe.jpg" alt="Coffee" class="rounded-circle mt-5"  >
-            <h2 class="mt-4 size">𝑪𝑶𝑭𝑭𝑬𝑬</h2>
-        </div>
-
-        
-
-    </div>
-</div>
  
-
-
-
-
-
+<div class="container-fluid">
+  <div class="row d-flex mt-5 flex-wrap">
+    <div class="text-center color hovers col">
+      <img src="assets/dessert.jpg" alt="Dessert" class="rounded-circle mt-5">
+      <h2 class="mt-4 size" id="6" (click)="getall()">𝑫𝑬𝑺𝑺𝑬𝑹𝑻</h2>
+    </div>
+    <div class="text-center color hovers col">
+      <img src="assets/spicy.jpg" alt="Spicy" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑯𝑶𝑻&𝑺𝑷𝑰𝑪𝒀</h2>
+    </div>
+    <div class="text-center color hovers col">
+      <img src="assets/food images.jpg" alt="Food" class="rounded-circle mt-5">
+      <h2 class="mt-4 size" (click)="fastfood()">𝑭𝑨𝑺𝑻 𝑭𝑶𝑶𝑫</h2>
+    </div>
+    <div class="text-center color hovers col">
+      <img src="assets/meals.webp" alt="Meals" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑽𝑬𝑮𝑮𝑰𝑬𝑺</h2>
+    </div>
+    <div class="text-center color hovers col">
+      <img src="assets/nonveg.webp" alt="Non-Veg" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑵𝑶𝑵-𝑽𝑬𝑮</h2>
+    </div>
+    <div class="text-center color hovers col">
+      <img src="assets/ice cream.png" alt="Ice Cream" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑰𝑪𝑬-𝑪𝑹𝑬𝑨𝑴</h2>
+    </div>
+    <div class="text-center color hovers col">
+      <img src="assets/shakes.png" alt="Shakes" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑺𝑯𝑨𝑲𝑬𝑺</h2>
+    </div>
+ 
+    <div class="text-center color hovers col">
+      <img src="assets/drinks.png" alt="Drinks" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑺𝑶𝑭𝑻 𝑫𝑹𝑰𝑵𝑲𝑺</h2>
+    </div>
+ 
+    <div class="text-center color hovers col">
+      <img src="assets/coffe.jpg" alt="Coffee" class="rounded-circle mt-5">
+      <h2 class="mt-4 size">𝑪𝑶𝑭𝑭𝑬𝑬</h2>
+    </div>
+  </div>
+</div>
 <!-- design -->
 <div class="container ">
-    <div class="row justify-content-center">
-        <div class="col-md-3 ms-5">
-            <div class=" mb-4 ">
-                <img src="assets/breadpudding.jpg" class=" card-img-top rounded-circle"
-                    alt="Image 1" style="height: 200px; width: 200px;">
-                    <br>
-                    <br>
-                <div class="card-body ms-5">
-                    <h5 class="card-title">Puddings </h5>
-                    
-                    <div class="d-flex justify-content-between align-items-center">
-                         </div>
-                </div>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 ms-5">
+      <div class=" mb-4 ">
+        <img src="assets/breadpudding.jpg" class=" card-img-top rounded-circle" alt="Image 1"
+          style="height: 200px; width: 200px;">
+        <br>
+        <br>
+        <div class="card-body ms-5">
+          <h5 class="card-title">Puddings </h5>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
         </div>
-
-        <div class="col-md-3 ms-5">
-            <div class="mb-4 ">
-                <img src="assets/Badam-Milk.jpg" class=" card-img-top rounded-circle"
-                    alt="Image 1" style="height: 200px; width: 200px;">
-                    <br>
-                    <br>
-                <div class="card-body ms-5">
-                    <h5 class="card-title">shakes</h5>
-                     <div class="d-flex justify-content-between align-items-center">
-                        </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 ms-5">
-            <div class=" mb-4 ">
-                <img src="assets/milkshake3.jpeg" class="card-img-top rounded-circle "
-                    alt="Image 1" style="height: 200px; width: 200px;">
-                    <br>
-                    <br>
-                <div class="card-body ms-5">
-                    <h5 class="card-title">Cold bars</h5>
-                    <div class="d-flex justify-content-between align-items-center">
-                        </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col-md-3 ms-5">
+      <div class="mb-4 ">
+        <img src="assets/Badam-Milk.jpg" class=" card-img-top rounded-circle" alt="Image 1"
+          style="height: 200px; width: 200px;">
+        <br>
+        <br>
+        <div class="card-body ms-5">
+          <h5 class="card-title">shakes</h5>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 ms-5">
+      <div class=" mb-4 ">
+        <img src="assets/milkshake3.jpeg" class="card-img-top rounded-circle " alt="Image 1"
+          style="height: 200px; width: 200px;">
+        <br>
+        <br>
+        <div class="card-body ms-5">
+          <h5 class="card-title">Cold bars</h5>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
 <section class="showcase-area" id="showcase">
-    <div class="showcase-container">
-        <h1 class="main-title" id="home">Eat Right Food</h1>
-        <p>Eat Healty, it is good for our health.</p>
-        <a href="#food-menu" class="btn btn-primary">Menu</a>
-    </div>
+  <div class="showcase-container">
+    <h1 class="main-title" id="home">Eat Right Food</h1>
+    <p>Eat Healty, it is good for our health.</p>
+    <a href="#food-menu" class="btn btn-primary">Menu</a>
+  </div>
 </section>
-        <!-- Add similar card structures for other watches -->
-<!-- ---------------------------- -->
- <div id="video-container">
-    <video id="background-video" loop muted autoplay>
-      <source src="assets/res.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-
-    
+<!-- Add similar card structures for other watches -->
+<div id="video-container">
+  <video id="background-video" loop muted autoplay>
+    <source src="assets/res.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div id="content">
+    <h2><i>Food court</i></h2>
+    <p>our secret ingridient and our super taste</p>
  
-
-
-    <div id="content">
-      <h2><i>Food court</i></h2>
-      <p>our secret ingridient and our super taste</p>
-
-      <img src="assets/foot.png" alt="Description of the image">
-
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
-    </div>
-   </div>
+    <img src="assets/foot.png" alt="Description of the image">
  
-  
-  <section class="grainy-gradient-intro">
-  
-    <div class="d-flex justify-content-center align-items-center text-center" style="height: calc(10vh - 2px);">
-      <h1 class="display-4 fw-bold text-uppercase text-dark mb-0" style="letter-spacing: 15px;">Tasty Food......!</h1>
-    </div>
-  </section>
-  <br>
-
-  <div class="bg-image h-70">
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+  </div>
+</div>
+<section class="grainy-gradient-intro">
  
+  <div class="d-flex justify-content-center align-items-center text-center" style="height: calc(10vh - 2px);">
+    <h1 class="display-4 fw-bold text-uppercase text-dark mb-0" style="letter-spacing: 15px;">Tasty Food......!</h1>
+  </div>
+</section>
+<br>
+<div class="bg-image h-70">
   <div class="mask" style="background-color: rgba(163, 69, 67, .4);">
-    
     <div class="container-xl container-fluid mt-xl-0 mt-lg-5">
-
       <div class="row align-items-center vh-100">
-
         <div class="col-md-6 col-lg-4 pt-5 pt-lg-0">
           <div class="phone mask-custom d-flex align-items-stretch">
             <div class="inner px-4 text-center">
@@ -171,23 +133,19 @@
                 data-mdb-ripple-color="light">
                 Spend time with loved ones
               </button>
-            
               <button type="button" class="btn btn-outline-light btn-block btn-rounded btn-lg mt-2"
                 data-mdb-ripple-color="light">
                 Take care of yourself
               </button>
-              
               <button type="button" class="btn btn-outline-light btn-block btn-rounded btn-lg mt-2"
                 data-mdb-ripple-color="light">
                 Support a charity
               </button>
               <div class="dots d-flex justify-content-center align-items-center mt-5">
-               
               </div>
             </div>
           </div>
         </div>
-
         <div class="col-md-6 col-lg-4 pt-5 pt-lg-0">
           <div class="phone mask-custom d-flex align-items-stretch">
             <div class="inner px-4 w-100">
@@ -200,44 +158,44 @@
                 <div class="col-12">
                   <div class="card mb-3">
                     <div class="card-body">
-                      <a >
+                      <a>
                         <h5 class="my-2"><i style="color: #fca984;"></i>VEG🥦</h5>
                       </a>
                     </div>
                   </div>
                   <div class="card mb-3">
                     <div class="card-body">
-                      <a >
+                      <a>
                         <h5 class="my-2"><i style="color: #fca984;"></i>NON-VEG🍗</h5>
                       </a>
                     </div>
                   </div>
                   <div class="card mb-3">
                     <div class="card-body">
-                      <a >
-                        <h5 class="my-2"><i  style="color: #fca984;"></i>DESSERTS🍨
+                      <a>
+                        <h5 class="my-2"><i style="color: #fca984;"></i>DESSERTS🍨
                         </h5>
                       </a>
                     </div>
                   </div>
                   <div class="card mb-3">
                     <div class="card-body">
-                      <a >
-                        <h5 class="my-2"><i  style="color: #fca984;"></i>COOL BARS🥂</h5>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="card mb-3">
-                    <div class="card-body">
-                      <a >
-                        <h5 class="my-2"><i  style="color: #fca984;"></i>FAST FOOD🍝</h5>
+                      <a>
+                        <h5 class="my-2"><i style="color: #fca984;"></i>COOL BARS🥂</h5>
                       </a>
                     </div>
                   </div>
                   <div class="card mb-3">
                     <div class="card-body">
                       <a>
-                        <h5 class="my-2"><i  style="color: #fca984;"></i>SHAKES🥃</h5>
+                        <h5 class="my-2"><i style="color: #fca984;"></i>FAST FOOD🍝</h5>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <a>
+                        <h5 class="my-2"><i style="color: #fca984;"></i>SHAKES🥃</h5>
                       </a>
                     </div>
                   </div>
@@ -245,11 +203,10 @@
               </div>
               <div class="text-center pb-lg-5 pb-xl-0">
                 <i class="fas fa-heart fa-lg mt-4 pt-2 mb-2"></i>
-                  </div>
+              </div>
             </div>
           </div>
         </div>
-
         <div class="col-md-6 col-lg-4 pt-5 pt-lg-0">
           <div class="phone mask-custom d-flex align-items-stretch">
             <div class="inner px-4 w-100 text-center">
@@ -257,17 +214,19 @@
                 <a href="#!"><i class="fas fa-arrow-left fa-lg"></i></a>
                 <a href="#!"><i class="fas fa-ellipsis-v fa-lg"></i></a>
               </div>
-              <i  style="color: #fca984;"></i>
-              <h2 class="mb-3">Media
-                Looks</h2>
+              <i style="color: #fca984;"></i>
+              <h2 class="mb-3">Media Looks</h2>
               <h4 class="mb-4 pb-2">social media trendings!</h4>
               <div class="ratio ratio-16x9">
-                 <iframe width="560" height="315" src="https://www.youtube.com/embed/NLPuCclm5lA" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/7VZpZJ1AvP4" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
               </div>
-              <p class="mt-4 pt-1 text-start">Decide on a topic for your post, such as a recipe, a restaurant review, 
-                or a food-related event. Make sure your topic is something that you are passionate about and can write 
+ 
+ 
+              <p class="mt-4 pt-1 text-start">Decide on a topic for your post, such as a recipe, a restaurant review,
+                or a food-related event. Make sure your topic is something that you are passionate about and can write
                 about in detail. if you want a detail answer to this question you can visit my space ”WRITE ELEVATE”</p>
               <h4 class="mt-5 mb-4"><a><b>Food discovery and Our restaurant that serves them.</b></a></h4>
               <div class="d-flex justify-content-end">
@@ -280,391 +239,3 @@
     </div>
   </div>
 </div>
-
-<!-- deliveryCart -->
-<div class="container py-5">
-    <div class="row d-flex justify-content-center align-items-center">
-      <div class="col">
-        <div class="card my-4 shadow-3">
-          <div class="row g-0">
-            <div class="col-xl-6 d-xl-block bg-image position-relative">
-              <img src="https://mdbcdn.b-cdn.net/img/Others/extended-example/delivery.webp" alt="Sample photo"
-                class="img-fluid" />
-              <div class="mask position-absolute top-50 start-50 translate-middle" >
-                <div class=" justify-content-center align-items-center  ">
-                    <div class=" text-center" style="margin-bottom: 10px;">
-                        <i class="fa-solid fa-truck font possion-center"></i>      
-                    <p class="text-white title-style styles">Lorem ipsum delivery</p>
-                    <!-- <p class="text-white mb-0"></p> -->
-  
-                    <figure class="text-center mb-0">
-                      <blockquote class="blockquote text-white">
-                        <p class="pb-3">
-                          <i class="fas fa-quote-left fa-xs text-primary"
-                            style="color: hsl(210, 100%, 50%) ;"></i>
-                          <span class="lead font-italic  styles">Everything at your doorstep.</span>
-                          <i class="fas fa-quote-right fa-xs text-primary"
-                            style="color: hsl(210, 100%, 50%) ;"></i>
-                        </p>
-                      </blockquote>
-  
-                    </figure>
-
-
-                  </div>
-
-
-
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="card-body p-md-5 text-black">
-                <h3 class="mb-4 text-uppercase">Delivery Info</h3>
-  
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1m" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Example1m">First name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1n" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Example1n">Last name</label>
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example8" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example8">Address</label>
-                </div>
-  
-  
-  
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-  
-                    <select class="select">
-                      <option value="1">State</option>
-                      <option value="2">TamilNad</option>
-                      <option value="3">Kerala</option>
-                      <option value="4">AndraPradhesh</option>
-                     <option value="5">karnataka</option>
-                      <option value="6">Goa</option>
-                    </select>
-  
-                  </div>
-                  <div class="col-md-6 mb-4">
-  
-                    <select class="select">
-                      <option value="1">City</option>
-                      <option value="2">Coimbatore</option>
-                      <option value="3">Trichy</option>
-                      <option value="4">Chennai</option>
-                      <option value="3">Kanyakumari</option>
-                      <option value="3">Palakad</option>
-                      <option value="3">Kochi</option>
-                      <option value="3">Wayanad</option>
-                      <option value="3">Thiruvanandhapuram</option>
-                      <option value="3">Eluru</option>
-                      <option value="3">Gundur</option>
-                      <option value="3">Kakinada</option>
-                      <option value="3">Tirupati</option>
-                      <option value="3">Bidar</option>
-                      <option value="3">Bengaluru</option>
-                      <option value="3">Udupi</option>
-                      <option value="3">Agonda</option>
-                      <option value="3">Canacona</option>
-                      <option value="3">Margao</option>
-                    </select>
-  
-                  </div>
-                </div>
-  
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example3" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3">Zip</label>
-                </div>
-  
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example2" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example2">Email</label>
-                </div>
-  
-                <div class="d-flex justify-content-end pt-3">
-                  <button type="button" class="btn btn-success btn-lg ms-2"
-                    style="background-color:hsl(320, 71%, 56%) ">Place order</button>
-                </div>
-  
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<menu></menu> -->
-
-
-
-
- 
-<section id="food-menu">
-     
-    <div class="food-menu-container container">
-        <div class="food-menu-item">
-            <div class="food-img">
-                <img src="assets/fullmeals4.jpg" alt="" />
-            </div>
-            <div class="food-description">
-                <h2 class="food-titile">Thaali</h2>
-                <p>The quality food gives the richest strenth and gives good benefits</p>
-                <p class="food-price">Price: &#8377; 300</p>
-            </div>
-        </div>
-        <div class="food-menu-item">
-            <div class="food-img">
-                <img src="assets/chickenbriyani.webp" alt="error" />
-            </div>
-            <div class="food-description">
-                <h2 class="food-titile">Briyani</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-                    quae.
-                </p>
-                <p class="food-price">Price: &#8377; 350</p>
-            </div>
-        </div>
-        <div class="food-menu-item">
-            <div class="food-img">
-                <img src="assets/vegetable-noodles.jpg" alt="" />
-            </div>
-            <div class="food-description">
-                <h2 class="food-titile">Noodles</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-                    quae.
-                </p>
-                <p class="food-price">Price: &#8377; 400</p>
-            </div>
-        </div>
-        <div class="food-menu-item">
-            <div class="food-img">
-                <img src="assets/idly.jpg" alt="" />
-            </div>
-            <div class="food-description">
-                <h2 class="food-titile">Break Fast</h2>
-                <p>
-                    Indian Breakfast Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-                    quae.
-                </p>
-                <p class="food-price">Price: &#8377; 250</p>
-            </div>
-        </div>
-        <div class="food-menu-item">
-            <div class="food-img">
-                <img src="assets/vegtablerice.webp" alt="" />
-            </div>
-            <div class="food-description">
-                <h2 class="food-titile">Rice Items</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-                    quae.
-                </p>
-                <p class="food-price">Price: &#8377; 450</p>
-            </div>
-        </div>
-        <div class="food-menu-item">
-            <div class="food-img">
-                <img src="assets/apple_milk.jpg" alt="" />
-            </div>
-            <div class="food-description">
-                <h2 class="food-titile">Juice</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-                    quae.
-                </p>
-                <p class="food-price">Price: &#8377; 200</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-<router-outlet></router-outlet>
-
-
-
-
- 
-<!-- <footer start -->
-<footer id="footer">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="text-center">
-              <a  href="index.html"><img src="assets/footer2.jpg" alt="" width="200px" class="text-center rounded-circle"></a>
-
-          </div>
-      
-                    <div class="footer-about ms-3">
-                      <ul> 
-                          <li>One bite at a time, savor the moment.</li>
-                          <li>Food so good, it's worth the calorie splurge.</li>
-                          <li>Flavors that make your taste buds dance.</li>
-                          <li>Eating is a necessity, but dining is an art form.</li>
-                          <li>Life's too short to skip dessert.</li>
-                          <li>Where food and friends come together.</li>
-                          <li>Indulge in delicious moments.</li>
-                      </ul>
-               
-                      
-                    </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="useful-link ms-4" >
-            <h2>Useful Links</h2>
-             <div class="use-links">
-              <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
-              <li><a (click)="about()"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
-              <li><a (click)="career()"><i class="fa-solid fa-angles-right"></i> Career</a></li>
-              <li><a (click)="contact()"><i class="fa-solid fa-angles-right"></i> Contact</a></li>
-            </div>
-          </div>
-
-        </div>
-                  <div class="col-md-3">
-                      <div class="social-links">
-            <h2>Follow Us</h2>
-             <div class="social-icons">
-              <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-              <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-              <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
-            </div>
-          </div>
-                  
-
-                  </div>
-        <div class="col-md-3">
-          <div class="address">
-            <h2>Address</h2>
-             <div class="address-links">
-              <li class="address1"><i class="fa-solid fa-location-dot"></i> Trichy - Thuraiyur</li>
-                 <li><a href=""><i class="fa-solid fa-phone"></i> +91 9597204719</a></li>
-                 <li><a href=""><i class="fa-solid fa-envelope"></i> mailto:nsangeeth222gmail.com</a></li>
-                 <footer class=" text-center">
-                  <!-- Grid container -->
-                  <div class="container-fluid p-4 pb-0 mt-5 ground">
-                    <!-- Section: Social media -->
-                    <section class="mb-4">
-                      <!-- Facebook -->
-                      <a data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #3b5998;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-facebook-f"></i
-                      ></a>
-                
-                      <!-- Twitter -->
-                      <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #55acee;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-twitter"></i
-                      ></a>
-                
-                      <!-- Google -->
-                      <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #dd4b39;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-google"></i
-                      ></a>
-                
-                      <!-- Instagram -->
-                      <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #ac2bac;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-instagram"></i
-                      ></a>
-                
-                      <!-- Linkedin -->
-                      <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #0082ca;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-linkedin-in"></i
-                      ></a>
-                      <!-- Github -->
-                      <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #333333;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-github"></i
-                      ></a>
-                    </section>
-                    <!-- Section: Social media -->
-                  </div>
-                  <!-- Grid container -->
-                
-                  <!-- Copyright -->
-                 
-                  <!-- Copyright -->
-                </footer>
-            </div>
-          </div>
-        </div>
-                
-      </div>
-    </div>
-
-  </footer>
-  <!-- footer section end -->
-  <!-- footer copy right section start -->
-  <section id="copy-right">
-
-    
-    <div class="copy-right-sec"><i class="fa-solid fa-copyright"></i> 
-       
-      lorem ispum lorem ispum 2024 Powerd By <a href="#">lorem ispum</a> 
-
-
-    </div>
-
-  </section>
-  <!-- footer copy right section end -->
-
-  
