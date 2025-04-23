@@ -1,5 +1,4 @@
 <app-header></app-header>
- 
 <div class="container-fluid">
   <div class="row d-flex mt-5 flex-wrap">
     <div class="text-center color hovers col">
@@ -30,12 +29,10 @@
       <img src="assets/shakes.png" alt="Shakes" class="rounded-circle mt-5">
       <h2 class="mt-4 size">𝑺𝑯𝑨𝑲𝑬𝑺</h2>
     </div>
- 
     <div class="text-center color hovers col">
       <img src="assets/drinks.png" alt="Drinks" class="rounded-circle mt-5">
       <h2 class="mt-4 size">𝑺𝑶𝑭𝑻 𝑫𝑹𝑰𝑵𝑲𝑺</h2>
     </div>
- 
     <div class="text-center color hovers col">
       <img src="assets/coffe.jpg" alt="Coffee" class="rounded-circle mt-5">
       <h2 class="mt-4 size">𝑪𝑶𝑭𝑭𝑬𝑬</h2>
@@ -102,14 +99,11 @@
   <div id="content">
     <h2><i>Food court</i></h2>
     <p>our secret ingridient and our super taste</p>
- 
     <img src="assets/foot.png" alt="Description of the image">
- 
     <p>&copy; 2024 Your Company. All rights reserved.</p>
   </div>
 </div>
 <section class="grainy-gradient-intro">
- 
   <div class="d-flex justify-content-center align-items-center text-center" style="height: calc(10vh - 2px);">
     <h1 class="display-4 fw-bold text-uppercase text-dark mb-0" style="letter-spacing: 15px;">Tasty Food......!</h1>
   </div>
@@ -223,8 +217,6 @@
                   allowfullscreen>
                 </iframe>
               </div>
- 
- 
               <p class="mt-4 pt-1 text-start">Decide on a topic for your post, such as a recipe, a restaurant review,
                 or a food-related event. Make sure your topic is something that you are passionate about and can write
                 about in detail. if you want a detail answer to this question you can visit my space ”WRITE ELEVATE”</p>
@@ -239,3 +231,279 @@
     </div>
   </div>
 </div>
+<!-- deliveryCart -->
+<div class="container py-5">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col">
+      <div class="card my-4 shadow-3">
+        <div class="row g-0">
+          <div class="col-xl-6 d-xl-block bg-image position-relative">
+            <img src="https://mdbcdn.b-cdn.net/img/Others/extended-example/delivery.webp" alt="Sample photo"
+              class="img-fluid" />
+            <div class="mask position-absolute top-50 start-50 translate-middle">
+              <div class=" justify-content-center align-items-center  ">
+                <div class=" text-center" style="margin-bottom: 10px;">
+                  <i class="fa-solid fa-truck font possion-center"></i>
+                  <p class="text-white title-style styles">The Fastest Delivery</p>
+                  <!-- <p class="text-white mb-0"></p> -->
+                  <figure class="text-center mb-0">
+                    <blockquote class="blockquote text-white">
+                      <p class="pb-3">
+                        <i class="fas fa-quote-left fa-xs text-primary" style="color: hsl(210, 100%, 50%) ;"></i>
+                        <span class="lead font-italic  styles">Everything at your doorstep🚚.</span>
+                        <i class="fas fa-quote-right fa-xs text-primary" style="color: hsl(210, 100%, 50%) ;"></i>
+                      </p>
+                    </blockquote>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="card-body p-md-5 text-black">
+              <h3 class="mb-4 text-uppercase">Delivery Info</h3>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example1m">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example1n">Last name</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                <label class="form-label" for="form3Example8">Address</label>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <select class="select form-control" [(ngModel)]="selectedState" (change)="onStateChange()">
+                    <label>Selected State</label>
+                    <option value="">Select State</option>
+                    <option *ngFor="let state of stateList" [value]="state.name">{{ state.name }}</option>
+                  </select>
+                  <label>Selected State</label>
+                </div>
+                <!-- <p>Selected State: {{ selectedState }}</p> -->
+                <div class="col-md-6 mb-4">
+                  <select class="select form-control" [(ngModel)]="selectedCity">
+                    <option value="">Select City</option>
+                    <option *ngFor="let city of cityList" [value]="city">{{ city }}</option>
+                  </select>
+                  <label> Select City</label>
+                </div>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" class="form-control form-control-lg" />
+                <label class="form-label">Postal Code</label>
+              </div>
+              <!-- <div class="form-outline mb-4">
+                <input type="text" id="form3Example2" class="form-control form-control-lg" />
+                <label class="form-label" for="form3Example2">Email</label>
+              </div> -->
+              <div class="form-outline mb-4">
+                <input type="email" id="form3Example2" class="form-control form-control-lg" [(ngModel)]="email"
+                  name="email" required email #emailRef="ngModel" />
+                <label class="form-label" for="form3Example2">Email</label>
+                <div *ngIf="emailRef.invalid && emailRef.touched" class="text-danger">
+                  <small *ngIf="emailRef.errors?.['required']">Email is required.</small>
+                  <small *ngIf="emailRef.errors?.['email']">Enter a valid email address.</small>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end pt-3">
+                <button type="button" class="btn btn-success btn-lg ms-2"
+                  style="background-color:hsl(320, 71%, 56%) ">Place order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- <menu></menu> -->
+<section id="food-menu">
+  <div class="food-menu-container container">
+    <div class="food-menu-item">
+      <div class="food-img">
+        <img src="assets/fullmeals4.jpg" alt="" />
+      </div>
+      <div class="food-description">
+        <h2 class="food-titile">Thaali</h2>
+        <p>The quality food gives the richest strenth and gives good benefits</p>
+        <p class="food-price">Price: &#8377; 300</p>
+      </div>
+    </div>
+    <div class="food-menu-item">
+      <div class="food-img">
+        <img src="assets/chickenbriyani.webp" alt="error" />
+      </div>
+      <div class="food-description">
+        <h2 class="food-titile">Briyani</h2>
+        <p>
+          Spices,aroma,and a burst of flavors biryani is love served on a plate.
+        </p>
+        <p class="food-price">Price: &#8377; 350</p>
+      </div>
+    </div>
+    <div class="food-menu-item">
+      <div class="food-img">
+        <img src="assets/vegetable-noodles.jpg" alt="" />
+      </div>
+      <div class="food-description">
+        <h2 class="food-titile">Noodles</h2>
+        <p>
+          Noodles are proof that the best things in life are tangled.
+        </p>
+        <p class="food-price">Price: &#8377; 400</p>
+      </div>
+    </div>
+    <div class="food-menu-item">
+      <div class="food-img">
+        <img src="assets/idly.jpg" alt="" />
+      </div>
+      <div class="food-description">
+        <h2 class="food-titile">Break Fast</h2>
+        <p>
+          All happiness depends on a leisurely breakfast
+        </p>
+        <p class="food-price">Price: &#8377; 250</p>
+      </div>
+    </div>
+    <div class="food-menu-item">
+      <div class="food-img">
+        <img src="assets/vegtablerice.webp" alt="" />
+      </div>
+      <div class="food-description">
+        <h2 class="food-titile">Rice Items</h2>
+        <p>
+          Rice is great if you’re really hungry and want to eat two thousand of something
+        </p>
+        <p class="food-price">Price: &#8377; 450</p>
+      </div>
+    </div>
+    <div class="food-menu-item">
+      <div class="food-img">
+        <img src="assets/apple_milk.jpg" alt="" />
+      </div>
+      <div class="food-description">
+        <h2 class="food-titile">Juice</h2>
+        <p>
+          When life gives you lemons, make juice and share it!
+        </p>
+        <p class="food-price">Price: &#8377; 200</p>
+      </div>
+    </div>
+  </div>
+</section>
+<router-outlet></router-outlet>
+<!-- <footer start -->
+<footer id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Logo & About Section -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <a href="index.html">
+            <img src="assets/footer2.jpg" alt="Logo" width="200px" class="rounded-circle">
+          </a>
+        </div>
+        <div class="footer-about ms-3" style="color: black;">
+          <ul>
+            <li>One bite at a time, savor the moment.</li>
+            <li>Food so good, it's worth the calorie splurge.</li>
+            <li>Flavors that make your taste buds dance.</li>
+            <li>Eating is a necessity, but dining is an art form.</li>
+            <li>Life's too short to skip dessert.</li>
+            <li>Where food and friends come together.</li>
+            <li>Indulge in delicious moments.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Useful Links -->
+      <div class="col-md-3">
+        <div class="useful-link ms-4">
+          <h2 style="color: black;"><b>Useful Links</b></h2>
+          <ul class="use-links">
+            <li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+            <li><a (click)="about()"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+            <li><a (click)="career()"><i class="fa-solid fa-angles-right"></i> Career</a></li>
+            <li><a (click)="contact()"><i class="fa-solid fa-angles-right"></i> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Social Links -->
+      <div class="col-md-3">
+        <div class="social-links">
+          <h2 style="color: black;">Follow Us</h2>
+          <ul class="social-icons">
+            <li><a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Address Section -->
+      <div class="col-md-3">
+        <div class="address">
+          <h2 style="color: black;">Address</h2>
+          <ul class="address-links">
+            <li><i class="fa-solid fa-location-dot"></i> Trichy - Thuraiyur</li>
+            <li><a href="tel:+919597204719"><i class="fa-solid fa-phone"></i> +91 9597204719</a></li>
+            <li><a href="mailto:nsangeeth222@gmail.com"><i class="fa-solid fa-envelope"></i>nsangeeth222gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Social Media Footer Section -->
+    <div class="container-fluid p-4 pb-0 mt-5 text-center">
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
+          href="https://www.facebook.com/login.php/" role="button">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <!-- Twitter -->
+        <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="https://x.com/i/flow/login"
+          role="button">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <!-- Google -->
+        <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
+          href="https://www.google.com/search?q=google+link&oq=google+link&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORixAxiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIMCAgQABgUGIcCGIAEMgcICRAAGIAE0gEJMTY3NzdqMGo3qAIAsAIA&client=ubuntu-chr&sourceid=chrome&ie=UTF-8"
+          role="button">
+          <i class="fab fa-google"></i>
+        </a>
+        <!-- Instagram -->
+        <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
+          href="https://instagram.com/accounts/login/?next=%2F&source=mobile_nav" role="button">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <!-- Linkedin -->
+        <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
+          href="https://www.linkedin.com/company/login" role="button">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <!-- Github -->
+        <a class="btn text-white btn-floating m-1" style="background-color: #333333;"
+          href="https://github.com/topics/login" role="button">
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+    </div>
+  </div>
+</footer>
+<!-- footer section end -->
+<section id="copy-right">
+  <div class="copy-right-sec"><i class="fa-solid fa-copyright"></i>
+    OASYS Private Pvt Ltd 2024 Powerd By <a href="#">Swiggy</a>
+  </div>
+</section>
+<!-- footer copy right section end -->
+
