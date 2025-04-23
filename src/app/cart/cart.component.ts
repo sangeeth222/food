@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/api.service';
+import { SnackbarService } from '../snackbar.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,8 @@ export class CartComponent implements OnInit {
   inputValue: number = 1;
   imagePaths: { [key: number]: string } = {};
 
-  constructor(private api: ApiService, private route: Router, private routes: ActivatedRoute) {}
+  constructor(private api: ApiService, private route: Router, 
+    private snackbar: SnackbarService,private routes: ActivatedRoute) {}
 
   ngOnInit() {
     this.getAll();
@@ -51,8 +53,9 @@ export class CartComponent implements OnInit {
     return this.addItems?.reduce((total, item) => total + this.totalPrice(item), 0) || 0;
   }
 
-  delete(item: any) {
+  remove(item: any) {
     this.api.delete(`/cart/${item.id}`).subscribe(() => {
+      this.snackbar.showSuccessMessage("Remove Product Successfully");
       this.getAll();
     });
   }
