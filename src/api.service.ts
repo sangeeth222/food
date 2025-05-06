@@ -12,10 +12,10 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
  // baseurl= "http://localhost:10000";
-   //  baseurl= "http://localhost:8080";
+  //  baseurl= "http://localhost:8080";
    //  baseurl="https://foodappapi-b7ig.onrender.com";
     
-    baseurl= 'https://foodapi-97dt.onrender.com';
+     baseurl= 'https://foodapi-97dt.onrender.com';
   
   post(path:any,data:any):Observable<any>{
     return this.http.post(this.baseurl+path,data)
