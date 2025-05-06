@@ -33,6 +33,7 @@ export class FoodsComponent implements OnInit {
 
     });
 
+console.log(this.groupedNonveg,this.nonveg,"=========================================================>>>>>>>>>>");
 
     // Get user ID from local storage
     let data = localStorage.getItem("res");
@@ -42,25 +43,22 @@ export class FoodsComponent implements OnInit {
     }
   }
 
-  getImage(image: String): String {
-     
-    return `http://localhost:8080/products/getProductImage/${image}`;
+  // getImage(image: String): String {
+  //    return '';
+  //   // return `http://localhost:8080/products/getProductImage/${image}`;
+  //}
+getProductsByCategory() {
+  this.api.get('/products/getByCategory/' + this.category).subscribe((res) => {
+    console.log("Fetched products successfully");
+    this.nonveg = res;
+    this.groupedNonveg = this.groupItems(this.nonveg, 3); // group after assigning
+  });
 }
- getProductsByCategory() {
-    this.api.get('/products/getByCategory/' + this.category).subscribe((res) => {
-      console.log("Fetched products successfully");
-      this.nonveg = res;
 
-      // Fetch image paths for each product
-      this.nonveg.forEach(product => {
-        this.getImage(product.id);
-      });
-    });
-  }
  
   post(data: any) {
     if(this.userId){
-    console.log(data);
+    console.log(data,'==data');
     let payload: any = {};
     payload['productName'] = data.productName;
     payload['quantity'] = 1; 
@@ -84,12 +82,12 @@ export class FoodsComponent implements OnInit {
 getall(){
   let data = localStorage.getItem("res");
   if (data) {
-    console.log(JSON.parse(data));
+    console.log(JSON.parse(data),'getall----');
     let item = JSON.parse(data);
     this.userById = item.id;
 
   }    this.api.get('/cart/userById/'+this.userById).subscribe((res)=>{
-    console.log(res);
+    console.log(res,'--=-=');
     this.nonveg=res;
     
     
