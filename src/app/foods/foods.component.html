@@ -1,53 +1,33 @@
-<!-- <app-header></app-header>
-<div class="container-fluid">
-  <div class="m-5 d-flex justify-content-center">
-    <div class="row">
-      <div class="col mt-4" *ngFor="let data of nonveg">
-        <div class="p-4 mt-4 humbnail">
-          <img [src]="getImage(data.image)" width="350px" height="250px">
-          <div class="color ms-5 mt-4">
-            <h5 class="color">Product Name: {{ data.productName }}</h5>
-            <h5 class="color">Price: {{ data.price }}</h5>
-          </div>
-          <div class="d-flex mt-3">
-            <button class="btn btn-small btn-outline-primary ms-5 mt-3" style="width: 100px;" (click)="buy()">
-              BUY
-            </button>
-            <button class="btn mt-2 button ms-5 class" (click)="post(data)">
-              <i class="fa-solid fa-cart-shopping"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <app-header></app-header>
 
 <div class="container-fluid">
   <div class="m-5">
     <div class="row">
       <div class="col-md-4 col-sm-6 col-12 mt-4" *ngFor="let data of nonveg">
-        <div class="p-4 thumbnail">
-          <!-- <img [src]="getImage(data.image)" width="100%" height="250px" class="img-fluid rounded"> -->
-          <div class="image-container">
-            <img [src]="getImage(data.image)" alt="Product Image" class="product-image" />
+        <div class="p-4 thumbnail shadow-sm border rounded">
+
+          <!-- Image Section -->
+          <div class="image-container text-center">
+            <img [src]="data.filePath" (load)="loadImage()" alt="{{ data.productName }}"
+              class="img-fluid rounded product-image" onerror="this.onerror=null; this.src='assets/default-image.jpg';" />
           </div>
-          
-          <div class="color mt-4">
+
+          <!-- Product Info -->
+          <div class="mt-4">
             <h5>Product Name: {{ data.productName }}</h5>
             <h5>Price: ₹{{ data.price }}</h5>
           </div>
+
+          <!-- Action Buttons -->
           <div class="d-flex justify-content-between mt-3">
             <button class="btn btn-outline-primary" style="width: 100px;" (click)="buy()">
               BUY
             </button>
-            <button class="btn button class" (click)="post(data)">
+            <button class="btn btn-outline-success" (click)="post(data)">
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
+
         </div>
       </div>
     </div>
